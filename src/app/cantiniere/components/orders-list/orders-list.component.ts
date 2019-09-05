@@ -1,0 +1,17 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-orders-list',
+  templateUrl: './orders-list.component.html',
+  styleUrls: ['./orders-list.component.scss']
+})
+export class OrdersListComponent implements OnInit {
+
+  orders = ['Pizza', 'Steak frite', 'Pâtes bolo', 'La réponse D' ]
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
