@@ -10,7 +10,7 @@ import * as cantiniere from './components/index';
   imports: [
     CommonModule,
     SharedModule,
-    CantiniereRoutingModule
+    CantiniereRoutingModule,
   ]
 })
 export class CantiniereModule { }
