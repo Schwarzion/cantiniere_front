@@ -1,0 +1,45 @@
+.card {
+  display: none;
+  width: 50%;
+ // box-shadow: ;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  
+  &:hover {
+    -webkit-transform: scale(1.06);
+    -moz-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
+  }
+
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  &:nth-child(2),
+  &:nth-child(3) {
+    width: 45%;
+    height: 230px;
+  }
+
+  &-img-top {
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 1px solid lightblue;
+  }
+
+  &-body {
+    display: flex;
+    justify-content: space-between;
+  }
+}

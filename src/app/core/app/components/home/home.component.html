@@ -2,3 +2,13 @@ coucou fom home
 <h1>Material Icons</h1>
 <i class="material-icons">account_circle</i>
 <i class="material-icons">thumb_up</i>
+
+<div class="container" *ngFor="let menu of menuList">
+    <div class="card" *ngIf="menu.meals[0].label != null">
+        <img class="card-img-top" src="http://192.168.236.128:8080/lunchtime/{{menu.meals[0].image}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{menu.meals[0].label}}</h5>
+            <p class="card-text">{{menu.priceDF}}</p>
+        </div>
+    </div>
+</div>
