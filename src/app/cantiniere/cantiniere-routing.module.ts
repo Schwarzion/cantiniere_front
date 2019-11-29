@@ -5,7 +5,7 @@ import { OrdersListComponent } from './components';
 const routes: Routes = [
   { path: '', component: OrdersListComponent },
   // Redirection en cas de route non trouvée
-  { path: '**', component: OrdersListComponent },
+  {path: '**', component: OrdersListComponent}
 ];
 
 @NgModule({
