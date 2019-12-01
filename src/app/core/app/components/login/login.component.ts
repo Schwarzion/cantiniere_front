@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.hasLoginFailed = false;
     this.loginService.login(this.loginForm.value).subscribe(res => {
       if (res.status === 200) {
-        const token = res.headers.get('authorization').slice(6, -1);
+        const token = res.headers.get('authorization').replace('Bearer ', '');
         this.userService.setUserToken(token);
         this.loginDialog.close();
       }

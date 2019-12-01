@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { LoginComponent } from './app/components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from '../interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [RootComponent, base.HeaderComponent, LoginComponent],
@@ -25,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [RootComponent],
   entryComponents: [LoginComponent],

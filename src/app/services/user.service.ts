@@ -14,7 +14,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     if (localStorage.getItem('token')) {
-      this.userToken = localStorage.getItem('token').user;
+      this.userToken = localStorage.getItem('token');
     }
   }
 
@@ -36,10 +36,8 @@ export class UserService {
 
   isUserConnected() {
     if (localStorage.getItem('token')) {
-      console.log('localstorage', !!localStorage.getItem('token'));
       return of(!!localStorage.getItem('token'));
     } else {
-      console.log('else', !!this.userToken);
       return of(!!this.userToken);
     }
   }
