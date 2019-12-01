@@ -7,10 +7,6 @@ import * as cantiniere from './components/index';
 
 @NgModule({
   declarations: [...cantiniere.component],
-  imports: [
-    CommonModule,
-    SharedModule,
-    CantiniereRoutingModule,
-  ]
+  imports: [CommonModule, SharedModule, CantiniereRoutingModule, SharedModule],
 })
-export class CantiniereModule { }
+export class CantiniereModule {}
