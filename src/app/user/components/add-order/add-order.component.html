@@ -1,0 +1,10 @@
+<div>
+  <h2>Commander un plat</h2>
+  <div *ngIf="mealsAvailable">
+    <div *ngFor="let meal of mealsAvailable" (click)="selectMeal(meal.id)">
+      <label for="{{meal.id}}">{{meal.label}}</label>
+      <input id="{{meal.id}}" type="checkbox" />
+    </div>
+    <button (click)="validate()">Valider</button>
+  </div>
+</div>
