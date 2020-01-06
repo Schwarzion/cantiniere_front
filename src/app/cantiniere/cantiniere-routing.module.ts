@@ -7,6 +7,7 @@ import {
   UserProfileComponent
 } from './components';
 import { FundingComponent, MenuComponent } from './containers';
+import { IngredientsComponent } from './components/ingredients/ingredients.component';
 
 const routes: Routes = [
   { path: 'orders', component: OrdersListComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'menu/add', component: AddMenuComponent },
   { path: 'menu/edit/:id', component: AddMenuComponent },
-  // Redirection en cas de route non trouvée
+  // Redirection en cas de route non trouvée,
+  { path: 'ingredients', component:IngredientsComponent },
   { path: '**', component: FundingComponent},
 ];
 
