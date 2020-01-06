@@ -1,0 +1,42 @@
+* {
+    font-family: Lato;
+    font-style: regular;
+    font-size: 1rem;
+    color: black !important;
+    .btn {
+        font-size: 1.25rem;
+        width: 50% !important;
+        text-align: center !important;
+    }
+    input {
+        
+        padding-left: 1vw;
+        min-height: 2.5rem;
+        width: 100%;
+    }
+}
+
+.span-outline, .custom-select{
+    background: #FFFFFF;
+    border: 1px solid #FF9900;
+    border-radius: 9px;
+}
+
+.custom-box {
+    background-color: rgba(255, 204, 128, 0.06);
+    padding-bottom: 2vw;
+}
+
+.custom-span span, a, input, button{
+    color: #FF9900;
+
+}
+
+.btn-outline {
+    border: 1px solid #FF9900;
+
+}
+
+.span-left {
+    margin-left: 1rem;
+}

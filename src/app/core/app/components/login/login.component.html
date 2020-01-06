@@ -1,11 +1,12 @@
-<form [formGroup]="loginForm" (ngSubmit)="sendLogin()" mat-dialog-content>
+<form [formGroup]="loginForm" (ngSubmit)="sendLogin()" mat-dialog-content class="text-center">
   <div>
     <label for="email">Email:</label>
     <input id="email" type="text" formControlName="email" placeholder="email" />
   </div>
   <div>
     <label for="password">Mot de passe:</label>
-    <input id="password" type="password" formControlName="password" />
+    <input id="password" type="password" formControlName="password"  placeholder="password"/>
   </div>
-  <button type="submit">Connexion</button>
+  <button class="btn" type="submit ">Connexion</button>
+  <a href="/user/newaccount" class="btn">Not registered?</a>
 </form>
