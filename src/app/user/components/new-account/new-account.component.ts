@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class NewAccountComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private router:Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {

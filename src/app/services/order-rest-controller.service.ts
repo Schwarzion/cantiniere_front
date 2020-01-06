@@ -17,7 +17,7 @@ export class OrderRestControllerService {
     return this.http.get(`${this.URL}/findall`);
   }
 
-  addOrderMeal(order): Observable<any> {
+  public addOrderMeal(order): Observable<any> {
     return this.http.put(`${this.URL}/add`, order);
   }
 }
