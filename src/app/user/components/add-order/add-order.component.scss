@@ -1,0 +1,32 @@
+@import "src/assets/scss/colors";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  button {
+    background-color: $orange;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 56px;
+  }
+}
+
+.menu-item {
+  border: 1px solid $orange;
+  padding: 8px;
+  margin-bottom: 26px;
+  max-width: 200px;
+
+  img {
+    height: 75px;
+    width: 75px;
+  }
+
+  input {
+    width: 50px;
+    margin-left: 16px;
+  }
+}

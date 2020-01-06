@@ -1,10 +1,21 @@
 <div>
-  <h2>Commander un plat</h2>
-  <div *ngIf="mealsAvailable">
-    <div *ngFor="let meal of mealsAvailable" (click)="selectMeal(meal.id)">
-      <label for="{{meal.id}}">{{meal.label}}</label>
-      <input id="{{meal.id}}" type="checkbox" />
-    </div>
+  <div class="header">
+    <h2>Commander un plat</h2>
+    <p *ngIf="hasFailed === false">Votre commande a bien été prise en compte</p>
     <button (click)="validate()">Valider</button>
+  </div>
+  <div *ngIf="menusAvailable" class="row">
+    <div *ngFor="let menu of menusAvailable" (click)="addMenu(menu)" class="col-4 menu-item">
+      <label for="{{menu.id}}">{{menu.label}} </label>
+      <span> | {{menu.priceDF}} €</span>
+      <input id="{{menu.id}}" type="checkbox" [checked]="menu.id === selectedMealId" />
+      <div *ngFor="let meal of menu.meals; let i = index">
+        <div>
+          <p>{{meal.label}}</p>
+          <img src="/assets/{{meal.image}}" [alt]="meal.image" />
+          <input *ngIf="menu.id === selectedMealId" id="quantity" type="number" [(ngModel)]="mealsQuantity[i].quantity" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
