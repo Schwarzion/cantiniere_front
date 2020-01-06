@@ -51,7 +51,11 @@ export class IngredientRestControllerService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
+<<<<<<< HEAD
   private handleError<T>(operation = 'operation', result?: T) {
+=======
+  private handleError<T> (operation = 'operation', result?: T) {
+>>>>>>> 372efcc... feat: addd pictures for meals, ingredients, and menus, user can now put an order with specified quantities
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

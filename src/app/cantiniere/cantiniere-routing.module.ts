@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'validate', component: ValidateComponent },
   { path: '**', component: FundingComponent},
   { path: '', component: OrdersListComponent },
+  { path: 'ingredients', component:IngredientsComponent },
   // Redirection en cas de route non trouvée
   // {path: '**', component: OrdersListComponent}
 ];
