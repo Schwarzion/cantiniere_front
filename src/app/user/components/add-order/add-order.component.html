@@ -2,6 +2,7 @@
   <div class="header">
     <h2>Commander un plat</h2>
     <p *ngIf="hasFailed === false">Votre commande a bien été prise en compte</p>
+    <p *ngIf="hasFailed && hasFailed.length > 1">{{hasFailed}}</p>
     <button (click)="validate()">Valider</button>
   </div>
   <div *ngIf="menusAvailable" class="row">

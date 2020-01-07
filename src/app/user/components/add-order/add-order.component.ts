@@ -34,7 +34,7 @@ export class AddOrderComponent implements OnInit {
 
     const order = {
       constraintId: -1,
-      menuId: this.selectedMealId || undefined,
+      menuId: this.selectedMealId,
       quantityMeals: this.mealsQuantity,
       userId: this.userId
     };
@@ -47,7 +47,7 @@ export class AddOrderComponent implements OnInit {
       err => {
         console.dir(err);
         this.isLoading = false;
-        this.hasFailed = true;
+        this.hasFailed = err.error.exceptionMessage;
       });
   }
 

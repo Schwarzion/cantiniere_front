@@ -1,3 +1,13 @@
-<p *ngFor="let order of orders">
-  coucou
-</p>
+<div class="header">
+  <label for="start">Date de début: </label>
+  <input id="start" type="date" [(ngModel)]="startDate" />
+  <br />
+  <label for="end">Date de fin: </label>
+  <input id="end" type="date" [(ngModel)]="endDate" />
+  <button (click)="getOrdersByDate()">Valider</button>
+</div>
+<div class="list">
+  <app-order *ngFor="let order of orders" [order]="order" (sendOrderAction)="orderAction($event)">
+  </app-order>
+  <p *ngIf="orders && orders.length === 0">Aucune commande trouvée pour ce jour.</p>
+</div>

@@ -1,0 +1,16 @@
+.order {
+  border: 1px solid black;
+  margin: 16px;
+  
+
+  .meal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+}

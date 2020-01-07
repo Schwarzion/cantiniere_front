@@ -1,4 +1,25 @@
-<div>
-  <p *ngIf="order.menu">{{order.menu.label}}</p>
-  <p>{{order.user.firstname}} {{order.user.name}}</p>
+<div *ngIf="order.menu" class="order" (click)="toggleOrder()">
+  <p>
+    {{order.menu.label}}
+    <span> | {{ order.menu.priceDF}} €</span>
+    <span>
+      {{order.user.firstname}} {{order.user.name}} ({{order.user.wallet}}€)
+    </span>
+  </p>
+  <div *ngIf="order.quantityMeals && isToggled" class="meal">
+    <div *ngFor="let order of order.quantityMeals">
+      <p>{{order.quantity}} {{order.meal.label}}</p>
+      <img src="/assets/{{order.meal.image}}" [alt]="order.meal.image" />
+    </div>
+  </div>
+  <div *ngIf="!order.quantityMeals && order.menu && isToggled" class="meal">
+    <div *ngFor="let meal of order.menu.meals">
+      <p>1 {{meal.label}}</p>
+      <img src="/assets/{{meal.image}}" [alt]="meal.image" />
+    </div>
+  </div>
+  <div *ngIf="isToggled">
+    <button (click)="validateOrder()" [disabled]="order.menu.priceDF > order.user.wallet">Valider la commande</button>
+    <button (click)="cancelOrder()">Refuser la commande</button>
+  </div>
 </div>
