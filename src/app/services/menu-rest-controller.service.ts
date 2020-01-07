@@ -15,12 +15,12 @@ export class MenuRestControllerService {
   getMenuTodayList(): Observable<any>{
     return this.http.get<any>(this.url+'/findallavailablefortoday').pipe(
         catchError(this.handleError('getMenuList', []))
-    )
+    );
   }
   getMenuWeekList(): Observable<any>{
     return this.http.get<any>(this.url+'/findallavailableforweek/1').pipe(
         catchError(this.handleError('getMenuList', []))
-    )
+    );
   }
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
