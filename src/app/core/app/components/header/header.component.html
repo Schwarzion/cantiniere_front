@@ -20,5 +20,10 @@
         <a class="nav-link" href="#">Se déconnecter</a>
       </li>
     </ul>
+      <app-button [text]="isConnected ? 'Déconnexion' : 'Connexion'"
+        (action)="isConnected ? logout() : openLoginModal()"></app-button>
+      <span *ngIf="currentUser"></span>
+    </ul>
+    <a href="/user/profile" *ngIf="currentUser">{{ currentUser.name }}</a>
   </div>
 </nav>
