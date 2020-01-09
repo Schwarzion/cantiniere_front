@@ -4,6 +4,8 @@ export const noConnexionNeeded = [
   '/forgotpassword',
   '/ingredient/find/',
   '/meal/find/',
+  '/ingredient/find/s',
+  '/meal/find',
   '/meal/findallavailablefortoday',
   '/meal/findallavailableforweek',
   '/menu/find/',
