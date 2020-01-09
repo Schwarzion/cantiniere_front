@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import * as base from './app/components/index';
 
 import { RootRoutingModule } from './root-routing.module';
@@ -14,7 +15,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from '../interceptors/jwt.interceptor';
 
 @NgModule({
-  declarations: [RootComponent, base.HeaderComponent, LoginComponent],
+  declarations: [
+    RootComponent,
+    base.HeaderComponent,
+    LoginComponent,
+    base.FooterComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,15 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        Brand
-    </a>
-    <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <app-button [text]="isConnected ? 'Déconnexion' : 'Connexion'" (action)="isConnected ? logout() : openLoginModal()"></app-button>
-            <span *ngIf="currentUser"></span>
-        </ul>
-        <a href="/user/profile" *ngIf="currentUser">{{ currentUser.name }}</a>
-    </div>
+  <a class="navbar-brand" href="#">
+    <img src="../../../../../assets/img/svg/logo_la_cantiniere_desk.svg" alt="Logo La Cantiniere">
+  </a>
+  <button class="navbar-toggler" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Menus</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Panier</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Se déconnecter</a>
+      </li>
+    </ul>
+    <ul>
+      <app-button [text]="isConnected ? 'Déconnexion' : 'Connexion'"
+        (action)="isConnected ? logout() : openLoginModal()"></app-button>
+      <span *ngIf="currentUser"></span>
+    </ul>
+    <a href="/user/profile" *ngIf="currentUser">{{ currentUser.name }}</a>
+  </div>
 </nav>
