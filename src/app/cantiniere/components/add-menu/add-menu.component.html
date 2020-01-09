@@ -1,0 +1,30 @@
+<form *ngIf="menuForm" [formGroup]="menuForm" (ngSubmit)="sendMenu()">
+  <div>
+    <label for="label">Nom:</label>
+    <input id="label" formControlName="label" type="text" />
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <input id="description" formControlName="description" type="text" />
+  </div>
+  <div>
+    <label for="price">Prix:</label>
+    <input id="price" formControlName="price" type="text" /> €
+  </div>
+  <div>
+    <h3>Choix des semaines:</h3>
+    <input formControlName="weekInput" type="number" min="1" max="52" />
+    <button (click)="addWeekNumber()">Ajouter</button>
+    <div>
+      <p>Semaines :</p>
+      <p *ngFor="let week of weeksNumber; let i = index">{{week}}<i (click)="removeWeekNumber(week)" class="material-icons">remove_circle_outline</i></p>
+    </div>
+  </div>
+  <h3>Repas : <span><i class="material-icons" style="color: #248c26" (click)="openMealListModal()">add</i></span></h3>
+  <div class="meal-list">
+    <div *ngFor="let meal of menu.meals">
+      <p>{{meal.label}} <i (click)="removeMeal(meal.id)" class="material-icons">remove_circle_outline</i></p>
+      <img src="/assets/{{meal.image}}" [alt]="meal.image" />
+    </div>
+  </div>
+</form>

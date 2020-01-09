@@ -1,0 +1,11 @@
+<div class="list">
+  <div
+    *ngFor="let meal of meals"
+    [ngClass]="{meal: true, selected: (selectedMeals.includes(meal) || selectedIds.includes(meal.id))}"
+    (click)="selectedMeals.includes(meal) ? removeMeal(meal) : addMeal(meal)"
+  >
+  <span>{{selectedMeals.includes(meal) ? 'oui' : 'non'}}</span>
+    <p>{{meal.label}}</p>
+    <img src="/assets/{{meal.image}}" [alt]="meal.image" />
+  </div>
+</div>

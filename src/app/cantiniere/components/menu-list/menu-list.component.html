@@ -1,0 +1,44 @@
+<div class="list">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Nom
+        </th>
+        <th>
+          Prix
+        </th>
+        <th>
+          Semaines
+        </th>
+        <th>
+          Plats
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let menu of menus">
+        <td>{{menu.label}}</td>
+        <td>{{menu.priceDF}} €</td>
+        <td>
+          <span *ngFor="let week of menu.availableForWeeks; let i = index">
+            {{week}}
+            {{i === menu.availableForWeeks.length - 1 ? '' : ',&nbsp;'}}
+          </span>
+        </td>
+        <td>
+          <label *ngFor="let meal of menu.meals; let j = index">
+            {{meal.label}}{{j === menu.meals.length - 1 ? '' : ', &nbsp;'}}
+          </label>
+        </td>
+        <td>
+          <i class="material-icons" [routerLink]="[menu.id]">edit</i>
+          <i class="material-icons" (click)="deleteMenu(menu.id)" style="color: #b8360f">delete</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
