@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,17 +9,22 @@ import { environment } from '../../environments/environment';
 })
 export class IngredientRestControllerService {
 
+  userToken;
+
+  headerVar;
+
   constructor(private http: HttpClient) { }
+
   
 
-  getIngredients():Observable<any>{
-    return this.http.get<any>(`${environment.apiUrl}/ingredient/findall`)
-      .pipe(
+  getIngredients(): Observable <any>{
+    return this.http.get<any>(`${environment.apiUrl}/ingredient/findall`);
+      /*.pipe(
         tap(data =>  {
-          console.log(data)
+          console.log(data);
         }),
         catchError(this.handleError('getIngredients', []))
-      )
+      );*/
   }
 
 

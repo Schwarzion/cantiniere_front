@@ -8,11 +8,12 @@ import { IngredientRestControllerService } from '../../../services/ingredient-re
 })
 export class IngredientsComponent implements OnInit {
 
-  constructor(private Ingredients: IngredientRestControllerService) { }
+  constructor(private Ingredients:IngredientRestControllerService) { }
 
   ingredients;
 
   ngOnInit() {
+
     this.getIngredients();
     
   }
@@ -21,7 +22,7 @@ export class IngredientsComponent implements OnInit {
     this.Ingredients.getIngredients()
     .subscribe(data => {
       this.ingredients = data;
-    })
+    });
   }
 
 }
