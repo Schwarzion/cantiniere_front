@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).subscribe(res => {
       if (res.status === 200) {
         const token = res.headers.get('authorization').replace('Bearer ', '');
+        console.log(token);
+        console.log(res.headers.get('authorization'));
         this.userService.setUserToken(token);
         this.loginDialog.close();
       }

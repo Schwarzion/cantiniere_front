@@ -1,0 +1,9 @@
+<div>
+  <h1>Créditer un compte</h1>
+  <app-user-search (sendResult)="getResults($event)" [users]="allUsers"></app-user-search>
+  <div class="list" *ngIf="searchResult.length > 0">
+    <div class="result" *ngFor="let user of searchResult">
+      <app-user-result [user]="user"></app-user-result>
+    </div>
+  </div>
+</div>

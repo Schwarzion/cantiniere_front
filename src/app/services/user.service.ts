@@ -14,6 +14,8 @@ export class UserService {
 
   userToken;
 
+  URL = `${environment.apiUrl}/user`;
+
   constructor(private http: HttpClient) {
     if (localStorage.getItem('token')) {
       this.userToken = localStorage.getItem('token');
@@ -58,18 +60,25 @@ export class UserService {
     localStorage.removeItem('token');
   }
 
-  editUser(editData:any, id:number): Observable<any>
-  {
-    return this.http.patch(`${environment.apiUrl}/user/update/`+id, editData, { observe: 'response'});
+  editUser(editData: any, id: number): Observable<any> {
+    return this.http.patch(`${this.URL}/update/`+ id, editData, { observe: 'response'});
   }
 
-  addUser(newData:any): Observable<any>
-  {
-    return this.http.put(`${environment.apiUrl}/user/register`, newData, { observe: 'response'});
+  addUser(newData: any): Observable<any> {
+    return this.http.put(`${this.URL}/register`, newData, { observe: 'response'});
+  }
+
+  getAllUser() {
+    return this.http.get(`${this.URL}/findall`);
+  }
+
+  creditUser(userId, amount) {
+    return this.http.post(`${this.URL}/credit/${userId}?amount=${amount}`, {});
   }
 
 
-  private handleError<T> (operation = 'operation', result?: T) {
+
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
