@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -21,25 +22,23 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
+      email: new FormControl('toto@gmail.com', [Validators.required, Validators.email]),
+      password: new FormControl('bonjour', Validators.required)
     });
   }
 
   sendLogin() {
     this.hasLoginFailed = false;
     this.loginService.login(this.loginForm.value).subscribe(res => {
+      console.log(res);
       if (res.status === 200) {
         const token = res.headers.get('authorization').replace('Bearer ', '');
         console.log(token);
         console.log(res.headers.get('authorization'));
         this.userService.setUserToken(token);
+        this.userService.setUser();
         this.loginDialog.close();
       }
-    }, err => {
-      console.dir(err);
-      this.hasLoginFailed = true;
     });
   }
-
 }

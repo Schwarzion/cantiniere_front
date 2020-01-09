@@ -38,5 +38,6 @@ export class NewAccountComponent implements OnInit {
   submit() {
     this.userService.addUser(this.form.value).subscribe(resp => console.log(resp));
     this.router.navigate(['/']);
+    //ADD ALERT : User sucessfully updated;
   }
 }
