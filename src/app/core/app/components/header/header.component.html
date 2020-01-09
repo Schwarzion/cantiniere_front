@@ -20,6 +20,7 @@
         <a class="nav-link" href="#">Se déconnecter</a>
       </li>
     </ul>
+    <ul>
       <app-button [text]="isConnected ? 'Déconnexion' : 'Connexion'"
         (action)="isConnected ? logout() : openLoginModal()"></app-button>
       <span *ngIf="currentUser"></span>

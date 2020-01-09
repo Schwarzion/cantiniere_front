@@ -181,6 +181,7 @@
   &:nth-child(3) {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
     width: 45%;
     margin-left: 20px;
 
@@ -201,6 +202,8 @@
   }
 
   &:nth-child(3) {
+    width: 45%;
+    height: 230px;
     margin-top: -272px;
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -240,6 +243,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border-bottom: 1px solid lightblue;
   }
 
   &-body {
