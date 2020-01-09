@@ -10,18 +10,48 @@
   font-weight: bold;
   color: #004D5D;
   margin-bottom: 30px;
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    font-size: 22px !important;
+  }
 }
 
 .h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #004D5D;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    font-size: 20px !important;
+  }
+}
+
+.h4 {
   font-size: 1.8rem;
   font-weight: 600;
   color: #004D5D;
   margin-bottom: 25px;
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    font-size: 18px !important;
+  }
+}
+
+.h5 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #004D5D;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 320px) and (max-width: 1279px) {
+    font-size: 16px !important;
+  }
 }
 
 // Buttons
 .btn-link--blue {
-  padding: 12px 35px;
+  padding: 12px 35px 15px;
   border: 1px solid #004D5D;
   border-radius: 10px;
   color: #004D5D;
@@ -34,10 +64,19 @@
     color: #fff;
     text-decoration: none;
   }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding: 12px 15px 15px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 14px;
+    padding: 12px 15px 15px;
+  }
 }
 
 .btn-link--orange {
-  padding: 12px 35px;
+  padding: 12px 35px 15px;
   border: 1px solid #FF9900;
   border-radius: 10px;
   color: #FF9900;
@@ -49,5 +88,14 @@
     background-color: #FF9900;
     color: #fff;
     text-decoration: none;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding: 12px 15px 15px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 14px;
+    padding: 12px 15px 15px;
   }
 }

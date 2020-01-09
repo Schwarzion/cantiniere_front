@@ -14,7 +14,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from '../interceptors/jwt.interceptor';
 
 @NgModule({
-  declarations: [RootComponent, base.HeaderComponent, LoginComponent],
+  declarations: [
+    RootComponent,
+    base.HeaderComponent,
+    LoginComponent,
+    base.FooterComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

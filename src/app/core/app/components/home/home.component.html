@@ -43,13 +43,30 @@
         <img class="card-img-top" src="http://192.168.220.128:8080/lunchtime/{{menu.meals[0].image}}"
           alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{menu.meals[0].label}}</h5>
+          <h5 class="card-title h5">{{menu.meals[0].label}}</h5>
           <p class="card-text">{{menu.priceDF}}€</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="homepage-card--buttons">
-    <a class="btn-link--orange" href="#" target="">Il y en a d'autres</a>
+</div>
+
+<!-- Next Card -->
+<div class="homepage-next">
+  <div class="homepage-next--title container">
+    <i class="material-icons homepage-next--icon">local_dining</i>
+    <h3 class="h3">La cantinière vous propose la suite<br>(Toujours aussi bon)</h3>
+    <span class="homepage-next--description">
+      Des plats équilibrés et savoureux afin de satisfaire toutes vos envies
+    </span>
   </div>
+  <div class="homepage-next--container">
+    <div class="homepage-next--container-content first"></div>
+    <div class="homepage-next--container-content second"></div>
+    <div class="homepage-next--container-content third"></div>
+  </div>
+</div>
+
+<div class="homepage-card--buttons">
+  <a class="btn-link--orange" href="#" target="">Il y en a d'autres</a>
 </div>
