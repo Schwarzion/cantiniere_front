@@ -1,9 +1,16 @@
 .navbar {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   padding: 0 5px;
+
+  &.sticky {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
   &.bg-dark {
     background-image: linear-gradient(180deg, #004D5D -350%, #ffffff 100%);
@@ -17,11 +24,22 @@
   }
 
   a {
-  width: 300px;
+    width: 300px;
   }
 
   .nav-link {
+    display: flex;
     color: #323232;
+    transition: 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+
+    >i {
+      color: #FF9900;
+      margin-right: 10px;
+    }
   }
 
   .collapsing {
@@ -31,17 +49,28 @@
     transition-timing-function: ease;
     transition-duration: .35s;
     transition-property: height;
-  
+
     &.width {
       width: 0;
       height: auto;
       transition-property: width;
     }
   }
-  
+
   .navbar-collapse.width {
+    z-index: 9;
     position: fixed;
     top: 80px;
-    left: 0;
+    right: 0;
+    text-align: end;
+    padding: 0 30px;
+    border-radius: 5px 0 0 5px;
+    background-color: #fff;
+    box-shadow: 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #004D5D;
+    }
   }
 }
