@@ -1,0 +1,13 @@
+.button-log {
+  padding: 5px 10px 8px;
+  border: 1px solid #FF9900;
+  border-radius: 5px;
+  color: #FF9900;
+  background-color: #fff;
+  transition: 0.3s;
+
+  &:hover {
+    color: #fff;
+    background-color: #FF9900;
+  }
+}

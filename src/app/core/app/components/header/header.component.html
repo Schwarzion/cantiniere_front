@@ -1,5 +1,4 @@
-<nav id="navbar" class="navbar navbar-toggleable-md navbar-light bg-faded animated fadeInDown"
-  (scroll)="onWindowScroll($event);">
+<nav id="navbar" class="navbar navbar-toggleable-md navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
     data-target="#navbarNavDropdown3" aria-controls="navbarSupportedContent" aria-expanded="false"
     aria-controls="navbarNavDropdown3" aria-label="Toggle navigation">
@@ -18,10 +17,11 @@
         <a class="nav-link" *ngIf="isConnected" href="/user/profile">
           <i class="material-icons">account_circle</i> {{ user?.name }}</a>
       </li>
-      <li class="nav-item">
-        <span class="mx-auto" *ngIf="isConnected">
-          <i class="material-icons">euro_symbol</i> {{ user?.wallet }}€</span>
-      </li>
+
     </ul>
+  </div>
+  <div class="nav-item">
+    <span class="mx-auto" *ngIf="isConnected">Votre cagnotte : <span
+        class="nav-item__cagnotte">{{ user?.wallet }}€</span></span>
   </div>
 </nav>
