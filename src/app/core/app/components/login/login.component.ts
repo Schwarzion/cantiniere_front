@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   sendLogin() {
     this.hasLoginFailed = false;
     this.loginService.login(this.loginForm.value).subscribe(res => {
-      console.log(res);
       if (res.status === 200) {
         const token = res.headers.get('authorization').replace('Bearer ', '');
         console.log(token);
