@@ -9,23 +9,23 @@ import { MenuRestControllerService } from "../../../../services/menu-rest-contro
 export class HomeComponent implements OnInit {
   private menuList;
   private menuList2;
-  constructor(private menuService : MenuRestControllerService) { }
+  constructor(private menuService: MenuRestControllerService) { }
 
   ngOnInit() {
     this.getMenuList();
     this.getMenuWeek();
   }
-  getMenuList(){
+  getMenuList() {
     this.menuService.getMenuTodayList()
-        .subscribe(data => {
-          this.menuList = Object.values(data);
-        })
+      .subscribe(data => {
+        this.menuList = Object.values(data);
+      });
   }
-  getMenuWeek(){
+  getMenuWeek() {
     this.menuService.getMenuWeekList()
-        .subscribe(data => {
-          this.menuList2 = Object.values(data);
-          console.log(this.menuList2);
-        })
+      .subscribe(data => {
+        this.menuList2 = Object.values(data);
+        console.log(this.menuList2);
+      });
   }
 }
