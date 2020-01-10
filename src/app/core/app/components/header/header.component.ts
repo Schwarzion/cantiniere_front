@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
-import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/models/User';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -14,10 +16,18 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   isConnected = false;
   isModalOpen = false;
+  route: string;
   currentUser;
   currentUrl;
 
-  constructor(public matDialog: MatDialog, private userService: UserService, private router: Router) { 
+  constructor(location: Location, public matDialog: MatDialog, private userService: UserService, private router: Router) {
+    router.events.subscribe(val => {
+      if (location.path() !== '') {
+        this.route = location.path();
+      } else {
+        this.route = 'Home';
+      }
+    });
   }
 
   user: User;
@@ -50,7 +60,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.userService.logout();
-    this.router.navigate(['/']);
+    this.redirect();
   }
 
   getUser() {
@@ -62,6 +72,15 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
+
+  redirect() {
+    if (this.route !== 'Home') {
+      this.router.navigate(['/']);
+    } else {
+      this.refresh();
+    }
+  }
+
   refresh(): void {
     window.location.reload();
   }

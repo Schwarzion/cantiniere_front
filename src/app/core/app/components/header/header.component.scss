@@ -16,13 +16,32 @@
     }
   }
 
-  .navbar-nav.mr-auto {
-    width: 100%;
-    justify-content: flex-end;
-    margin-right: 10px;
+  a {
+  width: 300px;
   }
 
   .nav-link {
     color: #323232;
+  }
+
+  .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition-timing-function: ease;
+    transition-duration: .35s;
+    transition-property: height;
+  
+    &.width {
+      width: 0;
+      height: auto;
+      transition-property: width;
+    }
+  }
+  
+  .navbar-collapse.width {
+    position: fixed;
+    top: 80px;
+    left: 0;
   }
 }
