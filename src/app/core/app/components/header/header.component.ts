@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/models/User';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -12,18 +15,21 @@ export class HeaderComponent implements OnInit {
   isConnected = false;
   isModalOpen = false;
   currentUser;
+  currentUrl;
 
-  constructor(public matDialog: MatDialog, private userService: UserService) {}
+  constructor(public matDialog: MatDialog, private userService: UserService, private router: Router) { 
+  }
 
+  user: User;
   ngOnInit() {
     this.isUserConnected();
-    this.getUser();
+    this.currentUrl = this.router.url;
   }
 
   openLoginModal() {
-    if (!this.isModalOpen) {
+    if (!this.isModalOpen) {
       this.isModalOpen = true;
-      const dialogRef = this.matDialog.open(LoginComponent, { width: '250px'});
+      const dialogRef = this.matDialog.open(LoginComponent, { width: '250px' });
       dialogRef.afterClosed().subscribe(() => {
         this.isUserConnected();
         this.isModalOpen = false;
@@ -34,19 +40,29 @@ export class HeaderComponent implements OnInit {
   isUserConnected() {
     this.userService.isUserConnected().subscribe(isConnected => {
       this.isConnected = isConnected;
-      this.getUser();
+      if (this.isConnected === true) {
+        this.getUser();
+      } else {
+        this.isConnected = false;
+      }
     });
   }
 
   logout() {
     this.userService.logout();
-    this.isUserConnected();
+    this.router.navigate(['/']);
   }
 
   getUser() {
-    this.userService
-    .getUser()
-    .subscribe(cookie => this.currentUser = cookie.user);
+    this.userService.getUserById().subscribe(
+      resp => {
+        this.user = resp.body;
+        if (resp.status === 200) {
+          this.isConnected = true;
+        }
+      });
   }
-
+  refresh(): void {
+    window.location.reload();
+  }
 }

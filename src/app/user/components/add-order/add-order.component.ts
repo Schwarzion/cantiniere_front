@@ -68,6 +68,8 @@ export class AddOrderComponent implements OnInit {
   }
 
   getUserId() {
-    this.userService.getUser().subscribe(res => this.userId = res.user.id);
+    this.userService.getUserById().subscribe(res => {
+      this.userId = res.body.id;
+    });
   }
 }
