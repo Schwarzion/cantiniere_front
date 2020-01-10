@@ -97,7 +97,7 @@ export class HeaderComponent implements OnInit {
   // Scroll Navbar
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
-    if (window.pageYOffset > 50) {
+    if (window.pageYOffset > 20) {
       let navbar = document.getElementById('navbar');
       navbar.classList.add('sticky');
     } else {
