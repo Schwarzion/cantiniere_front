@@ -37,18 +37,6 @@ export class EditComponent implements OnInit {
     });
   }
 
-  edit() {
-    this.submitted = true;
-    if (this.form.invalid) {
-      console.log('nok');
-    } else {
-      this.userService.editUser(this.form.value, this.user.id).subscribe(resp => {
-        this.user = resp.body;
-      });
-      this.router.navigate(['/user/profile']);
-    }
-  }
-
   get f() { return this.form.controls; }
 
   initForm() {
@@ -65,12 +53,20 @@ export class EditComponent implements OnInit {
       phone: new FormControl(this.user.phone, Validators.required),
       isLunchLady: new FormControl(this.user.isLunchLady)
     },
-      ValidatePassword.MatchPassword // your validation method
+      ValidatePassword.MatchPassword
     );
   }
 
-  onReset() {
-    this.submitted = false;
-    this.form.reset();
+  edit() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      console.log('nok');
+      console.log(this.form);
+    } else {
+      this.userService.editUser(this.form.value, this.user.id).subscribe(resp => {
+        this.user = resp.body;
+      });
+      this.router.navigate(['/user/profile']);
+    }
   }
 }

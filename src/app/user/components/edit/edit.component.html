@@ -61,7 +61,7 @@
                         [ngClass]="{ 'is-invalid': submitted && f.address.errors }" class=" mx-auto span-outline"
                         required>
                     <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
-                        <div *ngIf="f.address.errors.required" class="invalid-feedback">Address is required</div>
+                        <div *ngIf="f.address.errors.required">Address is required</div>
                     </div>
                 </div>
                 <div class="row justify-content-between mt-2 form-group">
