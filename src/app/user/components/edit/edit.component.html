@@ -6,51 +6,92 @@
     <div class="bg-light custom-box custom-span">
         <div *ngIf="isQueried" class="col-6 mx-auto">
             <form [formGroup]="form" (ngSubmit)="edit(form)">
-                <div class="mt-2">
+                <div class="mt-2 form-group">
                     <span class="span-left row">Nom</span>
                     <input type="text" formControlName="name" placeholder="{{user.name}}" class="mx-auto span-outline"
-                        required>
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required>
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
                 </div>
-                <div class="mt-2">
+                <div class="mt-2 form-group">
                     <span class="span-left row">Prénom</span>
                     <input type="text" formControlName="firstname" placeholder="{{user.firstname}}"
-                        class="mx-auto span-outline" required>
+                        [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" class="mx-auto span-outline"
+                        required>
+                    <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstname.errors.required">First Name is required</div>
+                    </div>
                 </div>
-                <div class="mt-2">
+                <div class="mt-2 form-group">
                     <span class="span-left row">Email</span>
                     <input type="text" formControlName="email" placeholder="{{user.email}}"
-                        class=" mx-auto span-outline" required>
-                </div>
-                <div class="mt-2">
-                    <span class="span-left row">Mot de Passe</span>
-                    <input type="password" class="pass form-control mx-auto span-outline" required>
-                </div>
-                <div class="mt-2">
-                    <span class="span-left row">Mot de Passe (Confirmation)</span>
-                    <input type="password" formControlName="password" class="pass form-control mx-auto span-outline"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class=" mx-auto span-outline"
                         required>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+
                 </div>
-                <div class="mt-2">
+
+                <div class="mt-2 form-group">
+                    <span class="span-left row">Mot de Passe</span>
+                    <input type="password" formControlName="password" class="pass form-control mx-auto span-outline"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback" required>
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+                    </div>
+                </div>
+
+                <div class="mt-2 form-group">
+                    <span class="span-left row">Mot de Passe (Confirmation)</span>
+                    <input type="password" formControlName="confirmPassword"
+                        class="pass form-control mx-auto span-outline"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" required>
+                    <div *ngIf="submitted && f.confirmPassword.errors " class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    </div>
+                </div>
+
+                <div class="mt-2 form-group">
                     <span class="span-left row">Adresse</span>
                     <input type="text" formControlName="address" placeholder="{{user.address}}"
-                        class=" mx-auto span-outline" required>
+                        [ngClass]="{ 'is-invalid': submitted && f.address.errors }" class=" mx-auto span-outline"
+                        required>
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required" class="invalid-feedback">Address is required</div>
+                    </div>
                 </div>
-                <div class="row justify-content-between mt-2">
+                <div class="row justify-content-between mt-2 form-group">
                     <div class="col-6">
                         <span class="span-left">Ville</span>
                         <input type="text" formControlName="town" placeholder="{{user?.town}}"
-                            class="mx-auto span-outline" required>
+                            [ngClass]="{ 'is-invalid': submitted && f.town.errors }" class="mx-auto span-outline"
+                            required>
+                        <div *ngIf="submitted && f.town.errors" class="invalid-feedback">
+                            <div *ngIf="f.town.errors.required">Town is required</div>
+                        </div>
                     </div>
                     <div class="col-6">
                         <span class="span-left">Code Postal</span>
                         <input type="text" formControlName="postalCode" placeholder="{{user?.postalCode}}"
-                            class="mx-auto span-outline" required>
+                            [ngClass]="{ 'is-invalid': submitted && f.postalCode.errors }" class="mx-auto span-outline"
+                            required>
+                        <div *ngIf="submitted && f.postalCode.errors" class="invalid-feedback">
+                            <div *ngIf="f.postalCode.errors.required">Postal Code is required</div>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-2">
+                <div class="mt-2 form-group">
                     <span class="span-left row">Téléphone</span>
                     <input type="text" formControlName="phone" placeholder="{{user?.phone}}"
-                        class=" mx-auto span-outline" required>
+                        [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" class=" mx-auto span-outline"
+                        required>
+                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">Phone number is required</div>
+                    </div>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-outline w-50 mt-3">Valider les changements</button>
