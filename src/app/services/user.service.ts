@@ -84,11 +84,15 @@ export class UserService {
   }
 
   deactivateUser(userId: number) {
-    return this.http.patch(`${this.URL}/deactivate/${userId}?`, {});
+    return this.http.patch(`${this.URL}/deactivate/${userId}`, {});
   }
 
 
   activateUser(userId: number) {
-    return this.http.patch(`${this.URL}/activate/${userId}?`, {});
+    return this.http.patch(`${this.URL}/activate/${userId}`, {});
+  }
+
+  deleteUser(userId: number) {
+    return this.http.delete(`${this.URL}/delete/${userId}`, {});
   }
 }

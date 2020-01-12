@@ -13,4 +13,5 @@ export class User {
     town: string;
     wallet: number;
     status: number;
+    deleted = false;
 }

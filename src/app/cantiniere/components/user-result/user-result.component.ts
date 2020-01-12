@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/shared/models/User';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-result',
@@ -13,7 +14,7 @@ export class UserResultComponent implements OnInit {
   isToggled = false;
   amount: number;
 
-  constructor(private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() { }
 
@@ -53,6 +54,19 @@ export class UserResultComponent implements OnInit {
 
   orderHistory() {
     console.log('History');
+    const id = this.user.id;
+    this.router.navigate([`/cantiniere/userhistory`, id]);
     //Redirect to Order history in page
+  }
+
+  deleteUser() {
+    console.log('Delete');
+    if (window.confirm(`Vous êtes sur le point de supprimer le compte de ${this.user.firstname} ${this.user.name}`)) {
+      console.log('confirmer');
+      this.userService.deleteUser(this.user.id).subscribe((res: User) => {
+        console.log(res);
+        this.user.deleted = true;
+      });
+    }
   }
 }

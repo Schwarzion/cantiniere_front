@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card m-3" *ngFor="let elem of history">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    {{ elem.menu.label }}
+                </div>
+                <div class="col-6">
+                    {{ elem.menu.priceDF }} €
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-body list">
+            <div class="card result" *ngFor="let meals of elem.menu.meals">
+                <div class="card-header">
+                    <img class="card-img-top" *ngIf="meals.image" src="/assets/{{ meals.image }}"
+                        alt="{{ meals.image }}">
+                </div>
+                <div class="card-body">
+                    {{ meals.label }}
+                </div>
+                <div class="card-footer">
+                    {{ meals.priceDF }} €
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            Commandé le {{ elem.creationDate | date }} à {{ elem.creationDate | date:'shortTime' }}
+        </div>
+    </div>
+</div>
