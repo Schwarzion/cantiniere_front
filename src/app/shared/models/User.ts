@@ -12,4 +12,5 @@ export class User {
     sex: number;
     town: string;
     wallet: number;
+    status: number;
 }

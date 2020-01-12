@@ -23,7 +23,7 @@ export class UserResultComponent implements OnInit {
 
   addFunds() {
     if (window.confirm(`Vous êtes sur le point de créditer ${this.user.firstname} ${this.user.name} la somme de ${this.amount} €`)) {
-      console.log('confirmed');
+      console.log('confirmer');
       this.userService.creditUser(this.user.id, this.amount).subscribe((res: User) => {
         this.user.wallet = res.wallet;
         this.isToggled = false;
@@ -32,6 +32,27 @@ export class UserResultComponent implements OnInit {
   }
 
   editStatus() {
-    console.log('edit.status');
+    if (this.user.status === 1) {
+      console.log('Activate');
+      if (window.confirm(`Vous êtes sur le point d'activer ${this.user.firstname} ${this.user.name}`)) {
+        console.log('confirmer');
+        this.userService.activateUser(this.user.id).subscribe((res: User) => {
+          this.user.status = res.status;
+        });
+      }
+    } else if (this.user.status === 0) {
+      console.log('Deactivate');
+      if (window.confirm(`Vous êtes sur le point de désactiver ${this.user.firstname} ${this.user.name}`)) {
+        console.log('confirmer');
+        this.userService.deactivateUser(this.user.id).subscribe((res: User) => {
+          this.user.status = res.status;
+        });
+      }
+    }
+  }
+
+  orderHistory() {
+    console.log('History');
+    //Redirect to Order history in page
   }
 }
