@@ -7,7 +7,7 @@ export const component = [
   OrdersListComponent,
   OrderComponent,
   UserSearchComponent,
-  UserResultComponent,
+  UserResultComponent
 ];
 
 export * from './orders-list/orders-list.component';

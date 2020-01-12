@@ -1,11 +1,31 @@
 <div class="card">
   <img class="card-img-top" *ngIf="user.image" src="/assets/{{user.image}}" alt="{{ user.name}}">
-  <div class="card-body">
-    <h5 class="card-title">{{ user.firstname }}  {{ user.name }}</h5>
-    <p class="card-text">Crédit: {{user.wallet}} €</p>
-    <div *ngIf="isToggled">
-      <input [(ngModel)]="amount" type="number" /> €
+  <div class="card-body text-center">
+    <h4 class="card-title"><i class="material-icons">face</i> {{ user.firstname }} {{ user.name }}</h4>
+    <hr />
+    <p class="card-text"><i class="material-icons">email</i> {{ user.email }}</p>
+    <p *ngIf="user.phone" class="card-text"><i class="material-icons">phone</i>{{ user.phone }}</p>
+    <p *ngIf="user.address" class="card-text"><i class="material-icons">home</i>{{ user.address }}, {{ user.town }} {{ user.postalCode }}</p>
+    <hr />
+    <div class="row">
+      <div class="col-5">
+        <p class="card-text">Crédit: {{user.wallet}} €</p>
+        <div *ngIf="isToggled">
+          <input [(ngModel)]="amount" type="number" /> €
+        </div>
+      </div>
+      <div class="col-5">
+        <button (click)="isToggled ? addFunds() : toggleFunding()" class="btn btn-primary">Créditer</button>
+      </div>
     </div>
-    <button (click)="isToggled ? addFunds() : toggleFunding()" class="btn btn-primary">Créditer</button>
+    <hr />
+    <div class="row">
+      <div class="col-5">
+        <p class="card-text">Status: {{user.status }}</p>
+      </div>
+      <div class="col-5">
+        <button (click)="editStatus()" class="btn btn-primary">Changer status</button>
+      </div>
+    </div>
   </div>
 </div>

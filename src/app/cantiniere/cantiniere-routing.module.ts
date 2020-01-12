@@ -5,9 +5,8 @@ import { FundingComponent } from './containers';
 
 const routes: Routes = [
   { path: 'orders', component: OrdersListComponent },
-  { path: 'funding', component: FundingComponent },
-  // Redirection en cas de route non trouvée
-  // { path: '**', component: OrdersListComponent },
+  { path: 'manage', component: FundingComponent },
+  { path: '**', component: FundingComponent },
 ];
 
 @NgModule({

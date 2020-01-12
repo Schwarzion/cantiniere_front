@@ -14,5 +14,4 @@ export class ValidatePassword {
             return null;
         }
     }
-
 }

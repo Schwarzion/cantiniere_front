@@ -13,9 +13,9 @@ export class UserResultComponent implements OnInit {
   isToggled = false;
   amount: number;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   toggleFunding() {
     this.isToggled = !this.isToggled;
@@ -29,5 +29,9 @@ export class UserResultComponent implements OnInit {
         this.isToggled = false;
       });
     }
+  }
+
+  editStatus() {
+    console.log('edit.status');
   }
 }
