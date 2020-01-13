@@ -33,4 +33,8 @@ export class OrderRestControllerService {
   cancelOrder(id: number): Observable<any> {
     return this.http.patch(`${this.URL}/cancel/${id}`, {});
   }
+
+  getOrderByDateForUser(userId: number) {
+    return this.http.get(`${this.URL}/findallforusertoday/${userId}`, {});
+  }
 }

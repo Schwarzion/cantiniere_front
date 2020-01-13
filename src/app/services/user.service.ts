@@ -82,4 +82,17 @@ export class UserService {
   creditUser(userId, amount) {
     return this.http.post(`${this.URL}/credit/${userId}?amount=${amount}`, {});
   }
+
+  deactivateUser(userId: number) {
+    return this.http.patch(`${this.URL}/deactivate/${userId}`, {});
+  }
+
+
+  activateUser(userId: number) {
+    return this.http.patch(`${this.URL}/activate/${userId}`, {});
+  }
+
+  deleteUser(userId: number) {
+    return this.http.delete(`${this.URL}/delete/${userId}`, {});
+  }
 }

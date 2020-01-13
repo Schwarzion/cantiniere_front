@@ -5,10 +5,9 @@ import { CantiniereRoutingModule } from './cantiniere-routing.module';
 
 import * as cantiniere from './components/index';
 import { containers } from './containers/index';
-import { UserResultComponent } from './components/user-result/user-result.component';
 
 @NgModule({
-  declarations: [...cantiniere.component, ...containers, UserResultComponent],
+  declarations: [...cantiniere.component, ...containers],
   imports: [CommonModule, SharedModule, CantiniereRoutingModule, SharedModule],
 })
 export class CantiniereModule {}
