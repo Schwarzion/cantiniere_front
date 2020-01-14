@@ -22,19 +22,8 @@ export class MealListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllMeals();
-    // this.selectedMeals = this.data.meals;
-    this.data.mealIds = this.selectedIds;
-    this.data.mealIds.map(mealId => {
-      console.log('meals', this.meals);
-      this.meals.map(meal => {
-        if (meal.id === mealId) {
-          this.selectedMeals.push(meal);
-        }
-      });
-    });
-    console.log(this.data.mealIds);
-    console.log(this.selectedMeals);
-
+    this.selectedIds = this.data.mealIds;
+    this.selectedMeals = this.data.meals;
   }
 
   getAllMeals() {
@@ -44,25 +33,23 @@ export class MealListComponent implements OnInit {
   }
 
   addMeal(meal) {
-    console.log('add');
     this.selectedMeals.push(meal);
+    this.selectedIds.push(meal.id);
   }
 
   isSelected(mealId) {
-    console.log('isSelected', mealId);
-    this.selectedMeals.forEach(meal => {
-      if (meal.id === mealId) {
-        console.log('true');
-        return true;
-      }
-    });
-    return false;
+    return this.selectedIds.includes(mealId);
+  }
+
+  close(sendMeals?) {
+    this.mealListDialog.close(sendMeals && this.selectedMeals);
   }
 
   removeMeal(meal) {
-    console.log('remove');
     const index = this.selectedMeals.findIndex(selectedMeal => selectedMeal === meal);
     this.selectedMeals.splice(index, 1);
+    const indexId = this.selectedIds.findIndex(selectedMeal => selectedMeal === meal);
+    this.selectedIds.splice(indexId, 1);
   }
 
 }

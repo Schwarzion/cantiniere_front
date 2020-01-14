@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'userhistory/:id', component: UserOrderHistoryComponent },
   { path: 'funding', component: FundingComponent },
   { path: 'menu', component: MenuComponent },
-  { path: 'menu/:id', component: AddMenuComponent },
+  { path: 'menu/add', component: AddMenuComponent },
+  { path: 'menu/edit/:id', component: AddMenuComponent },
   // Redirection en cas de route non trouvée
   { path: '**', component: OrdersListComponent },
 ];

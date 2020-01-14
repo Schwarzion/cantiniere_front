@@ -22,9 +22,10 @@
   </div>
   <h3>Repas : <span><i class="material-icons" style="color: #248c26" (click)="openMealListModal()">add</i></span></h3>
   <div class="meal-list">
-    <div *ngFor="let meal of menu.meals">
+    <div *ngFor="let meal of meals">
       <p>{{meal.label}} <i (click)="removeMeal(meal.id)" class="material-icons">remove_circle_outline</i></p>
       <img src="/assets/{{meal.image}}" [alt]="meal.image" />
     </div>
   </div>
+  <button type="submit">Valider</button>
 </form>

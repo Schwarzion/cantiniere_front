@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { MealListComponent } from 'src/app/shared/components';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-add-menu',
@@ -20,6 +21,7 @@ export class AddMenuComponent implements OnInit {
 
   weeksNumber = [];
   mealsId: number[] = [];
+  meals = [];
 
   isMealListToggled = false;
 
@@ -30,11 +32,13 @@ export class AddMenuComponent implements OnInit {
   ngOnInit() {
     this.route.url.pipe(
       switchMap(url => {
-        if (url.length > 0) {
+        console.log(url);
+        if (url.length === 3) {
           this.isEditing = true;
           this.menuId = url[url.length - 1].path;
           return this.menuService.getMenuById(this.menuId);
         }
+        return of(false);
       })
     ).subscribe(menu => {
       if (this.isEditing) {
@@ -52,6 +56,7 @@ export class AddMenuComponent implements OnInit {
     if (this.menu.meals) {
       for (const meal of this.menu.meals) {
         this.mealsId.push(meal.id);
+        this.meals.push(meal);
       }
     }
   }
@@ -79,12 +84,20 @@ export class AddMenuComponent implements OnInit {
   }
 
   sendMenu() {
-    const parsedMenu = { };
+    const formValues = this.menuForm.value;
+    const parsedMenu = {
+      availableForWeeks: this.weeksNumber,
+      description: formValues.description,
+      priceDF: formValues.price,
+      label: formValues.label,
+      mealIds: this.mealsId,
+      id: this.menuId
+    };
 
     if (this.isEditing) {
-      this.menuService.editMenu(parsedMenu);
+      this.menuService.editMenu(parsedMenu).subscribe(menu => console.log('succes', menu), err => console.dir(err));
     } else {
-      this.menuService.addMenu(parsedMenu);
+      this.menuService.addMenu(parsedMenu).subscribe(menu => console.log('succes', menu), err => console.dir(err));
     }
   }
 
@@ -94,14 +107,22 @@ export class AddMenuComponent implements OnInit {
 
   removeMeal(mealId) {
     const index = this.menu.meals.findIndex(meal => meal.id === mealId);
-    this.menu.meals.splice(index, 1);
+    this.meals.splice(index, 1);
     this.mealsId.splice(index, 1);
   }
 
   openMealListModal() {
-    const dialogRef = this.matDialog.open(MealListComponent, { width: '75%', height: '75%', data: { mealIds: this.mealsId || []} });
+    const dialogRef =
+      this.matDialog.open(MealListComponent, { width: '75%', height: '75%', data: { mealIds: this.mealsId, meals: this.meals } });
     dialogRef.afterClosed().subscribe(selectedMeals => {
-      console.log(selectedMeals);
+      if (selectedMeals) {
+        this.meals = selectedMeals;
+        for (const meal of this.meals) {
+          if (!this.mealsId.includes(meal.id)) {
+            this.mealsId.push(meal.id);
+          }
+        }
+      }
     });
   }
 

@@ -1,3 +1,6 @@
+<div>
+  <button [routerLink]="['add']">Ajouter</button>
+</div>
 <div class="list">
   <table>
     <thead>
@@ -35,7 +38,7 @@
           </label>
         </td>
         <td>
-          <i class="material-icons" [routerLink]="[menu.id]">edit</i>
+          <i class="material-icons" [routerLink]="['edit', menu.id]">edit</i>
           <i class="material-icons" (click)="deleteMenu(menu.id)" style="color: #b8360f">delete</i>
         </td>
       </tr>
