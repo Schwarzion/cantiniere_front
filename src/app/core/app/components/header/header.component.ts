@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 import { LoginComponent } from '../login/login.component';
 import { User } from 'src/app/shared/models/User';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location, DOCUMENT } from '@angular/common';
 
 import { UserService } from 'src/app/services/user.service';
+import { from } from 'rxjs';
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  animations: [trigger('fade', [
+    state('void', style({opacity: 0})),
+    transition(':enter', [animate(100)]),
+    transition(':leave', [animate(300)]),
+  ])]
 })
 export class HeaderComponent implements OnInit {
   isConnected = false;
@@ -19,8 +26,11 @@ export class HeaderComponent implements OnInit {
   route: string;
   currentUser;
   currentUrl;
+  navbar;
+  user: User;
 
-  constructor(location: Location, public matDialog: MatDialog, private userService: UserService, private router: Router) {
+
+  constructor(location: Location, public matDialog: MatDialog, private userService: UserService, private router: Router, @Inject(DOCUMENT) document) {
     router.events.subscribe(val => {
       if (location.path() !== '') {
         this.route = location.path();
@@ -30,7 +40,6 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  user: User;
   ngOnInit() {
     this.isUserConnected();
     this.currentUrl = this.router.url;
@@ -84,4 +93,18 @@ export class HeaderComponent implements OnInit {
   refresh(): void {
     window.location.reload();
   }
+
+  // Scroll Navbar
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e) {
+    if (window.pageYOffset > 20) {
+      let navbar = document.getElementById('navbar');
+      navbar.classList.add('sticky');
+    } else {
+      let navbar = document.getElementById('navbar');
+      this.navbar.classList.remove('sticky');
+    }
+  }
 }
+
+
