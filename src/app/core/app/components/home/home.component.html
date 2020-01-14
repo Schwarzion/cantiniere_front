@@ -9,7 +9,6 @@
   <div class="banniere-right"></div>
   <div class="banniere-buttons">
     <a class="btn-link--blue" href="/user/newaccount" target="">Créer un compte</a>
-    <a class="btn-link--orange" href="#" target="">Connectez-vous</a>
   </div>
   <div class="banniere-informations">
     <div class="banniere-information cagnotte">
@@ -40,7 +39,7 @@
   <div class="card-content container">
     <div class="card-container" *ngFor="let menu of menuList">
       <div class="card" *ngIf="menu.meals">
-        <img class="card-img-top" src="http://localhost:8080/lunchtime/{{menu.meals[0].image}}"
+        <img class="card-img-top" src="http://192.168.220.128:8080/lunchtime/{{menu.meals[0].image}}"
           alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title h5">{{menu.meals[0].label}}</h5>
@@ -65,8 +64,8 @@
     <div class="homepage-next--container-content second"></div>
     <div class="homepage-next--container-content third"></div>
   </div>
-</div>
 
-<div class="homepage-card--buttons">
-  <a class="btn-link--orange" href="#" target="">Il y en a d'autres</a>
+  <div class="homepage-card--buttons">
+    <a class="btn-link--orange" href="#" target="">Il y en a d'autres</a>
+  </div>
 </div>

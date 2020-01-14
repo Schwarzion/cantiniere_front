@@ -1,15 +1,25 @@
 .navbar {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   padding: 0 5px;
+  background-color: #fff;
+
+  &.sticky {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 
   &.bg-dark {
     background-image: linear-gradient(180deg, #004D5D -350%, #ffffff 100%);
   }
 
   &-brand {
+    order: 1;
+
     >img {
       width: 80px;
       height: 80px;
@@ -17,11 +27,32 @@
   }
 
   a {
-  width: 300px;
+    max-width: 300px;
   }
 
   .nav-link {
+    display: flex;
+    padding: 20px 0;
     color: #323232;
+    transition: 0.3s;
+
+    &:hover {
+      color: #FF9900;
+    }
+
+    >i {
+      color: #FF9900;
+      margin-right: 10px;
+      transition: 0.3s;
+
+      &:hover {
+        color: #004D5D;
+      }
+    }
+  }
+
+  hr {
+    margin: inherit;
   }
 
   .collapsing {
@@ -31,17 +62,42 @@
     transition-timing-function: ease;
     transition-duration: .35s;
     transition-property: height;
-  
+
     &.width {
       width: 0;
       height: auto;
       transition-property: width;
     }
   }
-  
+
   .navbar-collapse.width {
+    z-index: 9;
     position: fixed;
     top: 80px;
-    left: 0;
+    right: 0;
+    min-width: 280px;
+    text-align: end;
+    padding: 0 30px;
+    border-radius: 5px 0 0 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-item {
+    span {
+      color: #323232;
+    }
+
+    &__cagnotte {
+      font-size: 26px;
+      font-weight: bold;
+      color: #FF9900 !important;
+    }
+  }
+
+  .nav-brand {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      padding: 10px 0;
+    }
   }
 }
