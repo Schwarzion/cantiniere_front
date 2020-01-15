@@ -1,5 +1,5 @@
-<div>
-  <h1>Gestion des comptes utilisateurs</h1>
+<div class="container">
+  <h1 class="h2">Gestion des comptes utilisateurs</h1>
   <app-user-search (sendResult)="getResults($event)" [users]="allUsers"></app-user-search>
   <div class="list" *ngIf="searchResult.length > 0">
     <div class="result" *ngFor="let user of searchResult">
