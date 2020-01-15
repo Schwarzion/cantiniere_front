@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OrdersListComponent, UserOrderHistoryComponent } from './components';
-import { FundingComponent } from './containers';
-
+import {
+  OrdersListComponent,
+  UserOrderHistoryComponent,
+  AddMenuComponent,
+} from './components';
+import { FundingComponent, MenuComponent } from './containers';
 
 const routes: Routes = [
   { path: 'orders', component: OrdersListComponent },
   { path: 'manage', component: FundingComponent },
   { path: 'userhistory/:id', component: UserOrderHistoryComponent },
-  { path: '**', component: FundingComponent },
+  { path: 'funding', component: FundingComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'menu/add', component: AddMenuComponent },
+  { path: 'menu/edit/:id', component: AddMenuComponent },
+  // Redirection en cas de route non trouvée
+  { path: '**', component: OrdersListComponent },
 ];
 
 @NgModule({
