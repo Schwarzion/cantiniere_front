@@ -1,0 +1,21 @@
+@import 'src/assets/scss/colors';
+
+.list {
+  th {
+    text-align: center;
+  }
+
+  tr, td {
+    border: 1px solid $orange;
+  }
+
+  td {
+    text-align: center;
+
+    i {
+      cursor: pointer;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+}

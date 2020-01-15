@@ -1,0 +1,15 @@
+<div class="list">
+  <div>
+    <button (click)="close(true)">Valider</button>
+    <button (click)="close()">Annuler</button>
+  </div>
+  <div
+    *ngFor="let meal of meals"
+    [ngClass]="{meal: true, selected: isSelected(meal.id)}"
+    (click)="isSelected(meal.id) ? removeMeal(meal) : addMeal(meal)"
+  >
+  <span>{{isSelected(meal.id) ? 'oui' : 'non'}}</span>
+    <p>{{meal.label}}</p>
+    <img src="/assets/{{meal.image}}" [alt]="meal.image" />
+  </div>
+</div>
