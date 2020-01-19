@@ -62,6 +62,14 @@ export class UserService {
     }
   }
 
+  isLunchLady() {
+    if (this.userToken) {
+      const decodedToken = jwt.decodeToken(this.userToken);
+      return !!decodedToken.user.isLunchLady;
+    }
+    return false;
+  }
+
   logout() {
     this.userToken = null;
     localStorage.removeItem('token');

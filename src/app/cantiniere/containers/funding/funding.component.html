@@ -2,16 +2,22 @@
   <div class="users-list__banner">
     <div class="users-list__banner--title">
       <h2>Gestion des comptes utilisateurs</h2>
-    </div>
-    <div class="users-list__banner--picture"></div>
-  </div>
-  <div class="users-list__container container">
-    <h3>Retrouvez la liste des utilisteurs</h3>
-    <app-user-search (sendResult)="getResults($event)" [users]="allUsers"></app-user-search>
-    <div class="users-list__content d-flex flex-row flex-wrap" *ngIf="searchResult.length > 0">
-      <div class="users-list__result" *ngFor="let user of searchResult">
-        <app-user-result [user]="user"></app-user-result>
+      <div class="container">
+        <app-user-search (sendResult)="getResults($event)" [users]="allUsers"></app-user-search>
+        <div class="list" *ngIf="searchResult.length > 0">
+          <div class="result" *ngFor="let user of searchResult">
+            <app-user-result [user]="user"></app-user-result>
+          </div>
+          <div class="users-list__banner--picture"></div>
+        </div>
+        <div class="users-list__container container">
+          <h3>Retrouvez la liste des utilisteurs</h3>
+          <app-user-search (sendResult)="getResults($event)" [users]="allUsers"></app-user-search>
+          <div class="users-list__content d-flex flex-row flex-wrap" *ngIf="searchResult.length > 0">
+            <div class="users-list__result" *ngFor="let user of searchResult">
+              <app-user-result [user]="user"></app-user-result>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
