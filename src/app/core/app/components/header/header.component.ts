@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit {
       navbar.classList.add('sticky');
     } else {
       let navbar = document.getElementById('navbar');
-      this.navbar.classList.remove('sticky');
+      navbar.classList.remove('sticky');
     }
   }
 }
