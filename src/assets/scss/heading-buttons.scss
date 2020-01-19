@@ -99,3 +99,44 @@
     padding: 12px 15px 15px;
   }
 }
+
+// SubSButtons
+.btn-sublink--blue {
+  padding: 8px 35px 8px;
+  border: 1px solid #004D5D;
+  border-radius: 10px;
+  color: #004D5D;
+  text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 1px solid #004D5D;
+    background-color: #004D5D;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+.btn-sublink--orange {
+  padding: 8px 35px 8px;
+  border: 1px solid #FF9900;
+  border-radius: 8px;
+  color: #FF9900;
+  text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 1px solid #FF9900;
+    background-color: #FF9900;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 14px;
+  }
+}

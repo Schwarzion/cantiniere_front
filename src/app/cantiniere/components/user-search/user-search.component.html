@@ -1,7 +1,17 @@
-<div *ngIf="users && users.length > 0">
-  <label for="lastName">Nom</label>
-  <input id="lastName" [(ngModel)]="lastName" type="text" />
-  <label for="firstName">Prénom</label>
-  <input id="firstName" [(ngModel)]="firstName" type="text" />
-  <button (click)="validate()">Rechercher</button>
+<div class="d-flex flex-row-reverse mb-5" *ngIf="users && users.length > 0">
+  <form class="d-flex flex-row-reverse">
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <label class="sr-only" for="lastName">Nom</label>
+        <input class="form-control" id="lastName" [(ngModel)]="lastName" type="text" placeholder="Nom">
+      </div>
+      <div class="col-auto">
+        <label class="sr-only" for="firstName">Prénom</label>
+        <input class="form-control" id="firstName" [(ngModel)]="firstName" type="text" placeholder="Prénom">
+      </div>
+      <div class="col-auto">
+        <button (click)="validate()" class="btn-sublink--blue">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
