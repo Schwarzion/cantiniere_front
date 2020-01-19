@@ -1,32 +1,174 @@
 @import "src/assets/scss/colors";
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.user-add {
+  margin-top: 100px;
 
   button {
-    background-color: $orange;
-    border: none;
-    color: white;
-    font-size: 24px;
-    margin-right: 56px;
+    z-index: 2;
+    position: fixed;
+    top: 38%;
+    right: 5%;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+
+
+    @media screen and (min-width: 320px) and (max-width: 766px) {
+      top: 50%;
+      right: 5%;
+      height: 40px;
+      width: 40px;
+    }
+
+    @media screen and (min-width: 767px) and (max-width: 991px) {
+      height: 50px;
+      width: 50px;
+    }
+
+    i {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 44px;
+
+      @media screen and (min-width: 320px) and (max-width: 766px) {
+        top: 0;
+        right: 0;
+        font-size: 38px;
+      }
+
+      @media screen and (min-width: 767px) and (max-width: 991px) {
+        top: 5px;
+        right: 5px;
+        font-size: 39px;
+      }
+    }
   }
-}
 
-.menu-item {
-  border: 1px solid $orange;
-  padding: 8px;
-  margin-bottom: 26px;
-  max-width: 200px;
-
-  img {
-    height: 75px;
-    width: 75px;
+  &__container {
+    padding: 50px 0 30px;
+    background-color: rgba(244, 244, 244, 0.3);
+    border-radius: 5px;
   }
 
-  input {
-    width: 50px;
-    margin-left: 16px;
+  &__title {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -15px;
+      display: inline-block;
+      height: 3px;
+      width: 30px;
+      background-color: $orange;
+    }
+  }
+
+  .row {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    padding: 8px;
+    margin: 0 20px 26px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #F4F4F4;
+    box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.1);
+
+    &:nth-child(4),
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11),
+    &:nth-child(12),
+    &:nth-child(13),
+    &:nth-child(16),
+    &:nth-child(18),
+    &:nth-child(20),
+    &:nth-child(25),
+    &:nth-child(26),
+    &:nth-child(28),
+    &:nth-child(29),
+    &:nth-child(30) {
+      display: none;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 766px) {
+      max-width: inherit;
+      min-width: 85%;
+      padding: 20px 25px;
+      margin: 0 0 20px 0;
+    }
+
+    @media screen and (min-width: 767px) and (max-width: 991px) {
+      min-width: 30%;
+    }
+
+    &--title {
+      color: $orange;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.75px;
+    }
+
+    &--checkbox {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #F4F4F4;
+
+      input {
+        margin-right: 20px;
+      }
+
+      span {
+        color: $primary;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    &--content {
+      border-bottom: 2px solid #F4F4F4;
+      margin-bottom: 10px;
+
+      input {
+        display: flex;
+        margin: 0 auto;
+        padding: 2px 5px;
+        margin-bottom: 15px;
+        border: 1px solid $orange;
+        border-radius: 3px;
+      }
+    }
+
+    &--meal {
+      color: $secondary;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    &--picture {
+      width: 100%;
+      min-height: 130px;
+      max-height: 130px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    }
   }
 }
