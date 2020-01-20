@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angular/common/http';
-<<<<<<< HEAD
 import { throwError as observableThrowError, Observable } from 'rxjs';
-=======
-import { throwError as observableThrowError,  Observable } from 'rxjs';
->>>>>>> 56283c8... creation of ingredients.component
 import { map, tap, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
@@ -18,7 +14,6 @@ export class IngredientRestControllerService {
   headerVar;
 
   constructor(private http: HttpClient) { }
-<<<<<<< HEAD
 
 
   getIngredients(): Observable<any> {
@@ -51,19 +46,6 @@ export class IngredientRestControllerService {
 
   deleteIngredient(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}/ingredient/delete/${id}`);
-=======
-
-  
-
-  getIngredients(): Observable <any>{
-    return this.http.get<any>(`${environment.apiUrl}/ingredient/findall`);
-      /*.pipe(
-        tap(data =>  {
-          console.log(data);
-        }),
-        catchError(this.handleError('getIngredients', []))
-      );*/
->>>>>>> 56283c8... creation of ingredients.component
   }
 
 
@@ -73,11 +55,7 @@ export class IngredientRestControllerService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-<<<<<<< HEAD
   private handleError<T>(operation = 'operation', result?: T) {
-=======
-  private handleError<T> (operation = 'operation', result?: T) {
->>>>>>> 372efcc... feat: addd pictures for meals, ingredients, and menus, user can now put an order with specified quantities
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
