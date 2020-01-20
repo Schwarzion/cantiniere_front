@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MealRestControllerService } from 'src/app/services/meal-rest-controller.service';
 import { UserService } from 'src/app/services/user.service';
 import { OrderRestControllerService } from 'src/app/services/order-rest-controller.service';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class AddOrderComponent implements OnInit {
   constructor(
     private mealService: MealRestControllerService,
     private userService: UserService,
-    private orderService: OrderRestControllerService
+    private orderService: OrderRestControllerService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -39,16 +41,18 @@ export class AddOrderComponent implements OnInit {
       userId: this.userId
     };
 
-    this.orderService.addOrderMeal(order).subscribe(
-      () => {
-        this.isLoading = false;
-        this.hasFailed = false;
-      },
-      err => {
-        console.dir(err);
-        this.isLoading = false;
-        this.hasFailed = err.error.exceptionMessage;
-      });
+    this.cartService.addMenu(order);
+
+    // this.orderService.addOrderMeal(order).subscribe(
+    //   () => {
+    //     this.isLoading = false;
+    //     this.hasFailed = false;
+    //   },
+    //   err => {
+    //     console.dir(err);
+    //     this.isLoading = false;
+    //     this.hasFailed = err.error.exceptionMessage;
+    //   });
   }
 
   addMenu(menu) {

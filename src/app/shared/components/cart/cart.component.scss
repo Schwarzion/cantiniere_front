@@ -1,0 +1,18 @@
+.shoppin_cart {
+  position: relative;
+}
+
+i {
+  font-size: 30px;
+  position: absolute;
+  z-index: 999;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #FF9900;
+}

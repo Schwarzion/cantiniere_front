@@ -1,0 +1,9 @@
+<div class="shopping_cart">
+  <div>
+    <i (click)="toggleCart()" class="material-icons">shopping_cart</i>
+  </div>
+  <div *ngIf="isToggled" class="dropdown">
+    <p>coucou</p>
+    <button>Valider la commande</button>
+  </div>
+</div>
