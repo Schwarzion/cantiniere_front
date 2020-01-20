@@ -8,6 +8,8 @@ import {
 } from './components';
 import { FundingComponent, MenuComponent } from './containers';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
+import { IngredientDetailComponent } from './components/ingredient-detail/ingredient-detail.component';
+import { ValidateComponent } from './components/validate/validate.component';
 
 const routes: Routes = [
   { path: 'orders', component: OrdersListComponent },
@@ -19,8 +21,12 @@ const routes: Routes = [
   { path: 'menu/add', component: AddMenuComponent },
   { path: 'menu/edit/:id', component: AddMenuComponent },
   // Redirection en cas de route non trouvée,
-  { path: 'ingredients', component:IngredientsComponent },
+  { path: 'ingredients', component: IngredientsComponent },
+  { path: 'ingredientDetail/:key', component: IngredientDetailComponent },
   { path: '**', component: FundingComponent},
+  { path: '', component: OrdersListComponent },
+  // Redirection en cas de route non trouvée
+  // {path: '**', component: OrdersListComponent}
 ];
 
 @NgModule({
