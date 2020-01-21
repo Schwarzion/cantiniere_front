@@ -65,7 +65,7 @@ export class IngredientDetailComponent implements OnInit {
       if (result == true) {
         if (action == 'delete') {
           this.delete(id);
-        }else{
+        } else {
           this.editIngredient(id);
         }
       }
