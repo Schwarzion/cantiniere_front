@@ -38,6 +38,10 @@ export class UserService {
     return this.http.get(`${this.URL}/find/` + jwt.decodeToken(this.userToken).user.id, { observe: 'response' });
   }
 
+  getUserProfile(id): Observable<any> {
+    return this.http.get(`${this.URL}/find/` + id, { observe: 'response' });
+  }
+
   getUserToken() {
     return this.userToken;
   }
@@ -94,7 +98,6 @@ export class UserService {
   deactivateUser(userId: number) {
     return this.http.patch(`${this.URL}/deactivate/${userId}`, {});
   }
-
 
   activateUser(userId: number) {
     return this.http.patch(`${this.URL}/activate/${userId}`, {});

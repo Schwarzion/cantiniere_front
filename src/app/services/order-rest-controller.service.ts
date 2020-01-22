@@ -34,7 +34,18 @@ export class OrderRestControllerService {
     return this.http.patch(`${this.URL}/cancel/${id}`, {});
   }
 
-  getOrderByDateForUser(userId: number) {
+  getDayOrderForUser(userId: number): Observable<any> {
     return this.http.get(`${this.URL}/findallforusertoday/${userId}`, {});
   }
+  getCreatedOderByDateForUser(start, end, userId: number): Observable<any> {
+    return this.http.get(`${this.URL}/findallforuser/${userId}?beginDate=${start}&endDate=${end}&status=0`, {});
+  }
+
+  getDeliveredOderByDateForUser(start, end, userId: number): Observable<any> {
+    return this.http.get(`${this.URL}/findallforuser/${userId}?beginDate=${start}&endDate=${end}&status=0`, {});
+  }
+  getCanceledOderByDateForUser(start, end, userId: number): Observable<any> {
+    return this.http.get(`${this.URL}/findallforuser/${userId}?beginDate=${start}&endDate=${end}&status=0`, {});
+  }
+
 }

@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col-8 mx-auto full-width-tabs">
+            <ul *ngIf="user" class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Actions</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="ml-4 tab-pane active mx-auto" id="profile">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2 class="mb-3">{{ user?.name }}<br />{{ user?.firstname }}</h2><br />
+                        </div>
+                        <div class="col-6">
+                            <div *ngIf="user?.image" class="text-center">
+                                <img src="/assets/{{ user?.image }}" class="mx-auto rounded-circle" alt="avatar">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Email</h5>
+                            <span>{{ user?.email }}</span>
+                            <hr>
+                            <h5>Téléphone</h5>
+                            <span>{{ user?.phone }}</span>
+                            <hr>
+                            <h5>Sexe</h5>
+                            <span>{{user?.sex == 1 ? 'Femme' : user?.sex == 0 ? 'Homme' : 'Autre'}}</span>
+                            <hr>
+                            <h5>Addresse</h5>
+                            <span>{{ user?.address }}</span>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Ville</h5>
+                                    <span>{{ user?.town }}</span>
+                                </div>
+                                <div class="col">
+                                    <h5>Code Postal</h5>
+                                    <span>{{ user?.postalCode }}</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <h5>Date d'inscription</h5>
+                            <span>{{ user?.registrationDate | date }}</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="messages">
+                    <div class="alert alert-custom alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a> Changez les informations de
+                        l'utilisateur
+                    </div>
+                    <table class="table borderless">
+                        <tbody class="mb-2">
+                            <tr>
+                                <td>
+                                    <span class="float-right font-weight-bold"><button (click)="editStatus()"
+                                            class="btn btn-orange">Changer status</button></span> Status :
+                                    {{user?.status == 0 ? 'Actif' : user?.status == 1 ? 'Inactif' : 'Supprimé'}}
+                                </td>
+                            </tr>
+                            <hr>
+                            <tr>
+                                <td>
+                                    <span class="float-right font-weight-bold">
+                                        <button (click)="isToggled ? addFunds() : toggleFunding()"
+                                            class="btn btn-blue">Créditer</button>
+                                    </span> Cagnotte :
+                                    {{user?.wallet}} €
+
+                                </td>
+                            </tr>
+                            <tr *ngIf="isToggled" class="toggle-input">
+                                <td>
+                                    <div class="input-group">
+                                        <input [(ngModel)]="amount" type="number" class="form-control input-outline" />
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text input-outline" id="inputGroupPrepend3">€</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <hr>
+                        </tbody>
+                    </table>
+                    <div class=row>
+                        <div class="col text-center">
+                            <button (click)="orderHistory()" class=" btn btn-blue text-center">Historique de
+                                commande</button>
+                        </div>
+                        <div class="col text-center">
+                            <button (click)="deleteUser()" class="btn btn-orange mx-auto">Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
