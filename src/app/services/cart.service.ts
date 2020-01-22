@@ -7,28 +7,53 @@ import { Subject } from 'rxjs';
 export class CartService {
 
   cartSubject = new Subject<any>();
+
   private cart = {
     menus: [],
     meals: []
   };
 
-  constructor() { }
+  constructor() {
+    if (this.getLocalStorageCart()) {
+      this.cart = this.getLocalStorageCart()
+    }
+  }
 
   getCart() {
-    console.log('get cart', this.cartSubject);
     this.cartSubject.subscribe(cart => cart.next(this.cart));
   }
 
-  emmitSubject() {
+  setCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  getLocalStorageCart() {
+    return JSON.parse(localStorage.getItem('cart'));
+  }
+
+  emitSubject() {
     this.cartSubject.next(this.cart);
   }
 
   addMeal(meal) {
     this.cart.meals.push(meal);
-    this.emmitSubject();
+    this.setCartToLocalStorage();
+    this.emitSubject();
   }
 
   addMenu(menu) {
     this.cart.menus.push(menu);
+    this.setCartToLocalStorage();
+    this.emitSubject();
   }
+
+  discardCart() {
+    this.cart = {
+      menus: [],
+      meals: []
+    };
+    localStorage.removeItem('cart');
+    this.emitSubject();
+  }
+
 }

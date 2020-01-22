@@ -1,11 +1,11 @@
-.shoppin_cart {
-  position: relative;
+.shopping_cart {
+  // position: relative;
+  z-index: 999;
 }
 
 i {
   font-size: 30px;
   position: absolute;
-  z-index: 999;
 }
 
 .dropdown {

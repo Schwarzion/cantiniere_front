@@ -3,7 +3,12 @@
     <i (click)="toggleCart()" class="material-icons">shopping_cart</i>
   </div>
   <div *ngIf="isToggled" class="dropdown">
-    <p>coucou</p>
-    <button>Valider la commande</button>
+    <div *ngFor="let menu of cart.menus">
+      <p>{{menu.details.label}}</p>
+    </div>
+    <div *ngFor="let meal of cart.meals">
+      <p>{{meal.label}}</p>
+    </div>
+    <button (click)="pay()">Payer ({{getTotalPrice()}}€)</button>
   </div>
 </div>

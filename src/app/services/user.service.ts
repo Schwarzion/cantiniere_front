@@ -50,6 +50,7 @@ export class UserService {
     if (this.user) {
       return of(this.user);
     }
+    return of(null);
   }
 
   setUser() {

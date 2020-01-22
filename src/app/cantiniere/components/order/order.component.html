@@ -1,10 +1,12 @@
-<div *ngIf="order.menu" class="order" (click)="toggleOrder()">
-  <p>
+<div *ngIf="order.quantityMeals" class="order" (click)="toggleOrder()">
+  <p *ngIf="order.menu">
     {{order.menu.label}}
-    <span> | {{ order.menu.priceDF}} €</span>
+  </p>
+  <p>
     <span>
       {{order.user.firstname}} {{order.user.name}} ({{order.user.wallet}}€)
     </span>
+    <span> | {{ getTotalOrderPrice() }} €</span>
   </p>
   <div *ngIf="order.quantityMeals && isToggled" class="meal">
     <div *ngFor="let order of order.quantityMeals">
@@ -19,7 +21,7 @@
     </div>
   </div>
   <div *ngIf="isToggled">
-    <button (click)="validateOrder()" [disabled]="order.menu.priceDF > order.user.wallet">Valider la commande</button>
+    <button (click)="validateOrder()" [disabled]="getTotalOrderPrice() > order.user.wallet">Valider la commande</button>
     <button (click)="cancelOrder()">Refuser la commande</button>
   </div>
 </div>
