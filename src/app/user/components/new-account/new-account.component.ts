@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UserService } from 'src/app/services/user.service';
+import { ValidatePassword } from '../../must-match/validate-password';
 
 @Component({
   selector: 'app-new-account',
@@ -11,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NewAccountComponent implements OnInit {
 
+  submitted = false;
   form: FormGroup;
   constructor(private router: Router, private userService: UserService) {
   }
@@ -18,6 +20,8 @@ export class NewAccountComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
+
+  get f() { return this.form.controls; }
 
   initForm() {
     this.form = new FormGroup(
@@ -29,14 +33,22 @@ export class NewAccountComponent implements OnInit {
         town: new FormControl('', Validators.required),
         postalCode: new FormControl('', Validators.required),
         password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+        confirmPassword: new FormControl('', Validators.required),
         sex: new FormControl('', Validators.required),
         phone: new FormControl('', Validators.required),
-      }
+      },
+      ValidatePassword.MatchPassword
     );
   }
 
   submit() {
-    this.userService.addUser(this.form.value).subscribe(resp => console.log(resp));
-    this.router.navigate(['/']);
+    this.submitted = true;
+    if (this.form.invalid) {
+      console.log(this.form);
+      console.log('nok');
+    } else {
+      this.userService.addUser(this.form.value).subscribe(resp => console.log(resp));
+      this.router.navigate(['/']);
+    }
   }
 }

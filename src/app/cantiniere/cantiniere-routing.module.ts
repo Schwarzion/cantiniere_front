@@ -1,18 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OrdersListComponent } from './components';
-import { IngredientsComponent } from './components/ingredients/ingredients.component';
-import { IngredientDetailComponent } from './components/ingredient-detail/ingredient-detail.component';
-import { ValidateComponent } from './components/validate/validate.component';
+import {
+  OrdersListComponent,
+  UserOrderHistoryComponent,
+  AddMenuComponent,
+  IngredientsComponent,
+  IngredientDetailComponent,
+  ValidateComponent,
+  IngredientFormComponent
+} from './components';
+import { FundingComponent, MenuComponent } from './containers';
 
 const routes: Routes = [
-  { path: '', component: OrdersListComponent },
+  { path: 'orders', component: OrdersListComponent },
+  { path: 'manage', component: FundingComponent },
+  { path: 'userhistory/:id', component: UserOrderHistoryComponent },
+  { path: 'funding', component: FundingComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'menu/add', component: AddMenuComponent },
+  { path: 'menu/edit/:id', component: AddMenuComponent },
   { path: 'ingredients', component: IngredientsComponent },
-  { path: 'ingredientDetail/:key', component: IngredientDetailComponent },
+  { path: 'ingredientDetail/:id', component: IngredientDetailComponent },
   { path: 'validate', component: ValidateComponent },
+  { path: 'ingredientForm', component: IngredientFormComponent }
   // Redirection en cas de route non trouvée
-  // {path: '**', component: OrdersListComponent}
-];
+/*   { path: '**', component: OrdersListComponent },
+ */];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

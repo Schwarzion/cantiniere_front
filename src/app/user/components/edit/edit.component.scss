@@ -2,7 +2,7 @@
     font-family: Lato;
     font-style: regular;
     font-size: 1rem;
-    color: black !important;
+
     .btn {
         font-size: 1.25rem;
         width: 50% !important;
@@ -12,7 +12,12 @@
         padding-left: 1vw;
         min-height: 2.5rem;
         width: 100%;
+        color: black !important;
     }
+}
+
+.invalid-feedback {
+    color: red;
 }
 
 .span-outline, .custom-select{
@@ -27,7 +32,7 @@
 }
 
 .custom-span span, a, input, button{
-    color: #FF9900;
+    border-color: #FF9900;
 
 }
 

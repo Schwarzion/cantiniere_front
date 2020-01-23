@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .selected {
+    border: 2px solid green;
+  }
+
+  .meal {
+    width: 33%;
+    cursor: pointer;
+    justify-content: center;
+  }
+}

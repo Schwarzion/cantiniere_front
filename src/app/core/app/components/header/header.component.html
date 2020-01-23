@@ -1,15 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        Brand
-    </a>
-    <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <app-button [text]="isConnected ? 'Déconnexion' : 'Connexion'" (action)="isConnected ? logout() : openLoginModal()"></app-button>
-            <span *ngIf="currentUser"></span>
-        </ul>
-        <a href="/user/profile" *ngIf="currentUser">{{ currentUser.name }}</a>
-    </div>
+<nav id="navbar" class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+    data-target="#navbarNavDropdown3" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-controls="navbarNavDropdown3" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <app-button class="nav-brand" (action)="isConnected ? logout() : openLoginModal()"
+    [text]="isConnected ? 'Déconnexion' : 'Connexion'"></app-button>
+  <a class="navbar-brand" href="#">
+    <img src="../../../../../assets/img/svg/logo_la_cantiniere_desk.svg" alt="Logo La Cantiniere">
+  </a>
+  <div class="collapse width navbar-collapse bg-faded" id="navbarNavDropdown3">
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><i class="material-icons">home</i> Home</a>
+        <hr *ngIf="isConnected" />
+        <a class="nav-link" *ngIf="isConnected" href="/user/profile">
+          <i class="material-icons">account_circle</i> {{ user?.name }}</a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="nav-item">
+    <span class="mx-auto" *ngIf="isConnected">Votre cagnotte : <span
+        class="nav-item__cagnotte">{{ user?.wallet }}€</span></span>
+  </div>
 </nav>

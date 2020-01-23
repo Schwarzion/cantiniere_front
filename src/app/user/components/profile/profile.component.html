@@ -10,38 +10,38 @@
             </div>
             <div class="mt-2">
                 <span class="span-left">Nom</span>
-                <span type="text" class="input-group-text mx-auto span-outline">{{user.name}}</span>
+                <span type="text" class="input-group-text mx-auto span-outline">{{user?.name}}</span>
             </div>
             <div class="mt-2">
                 <span class="span-left">Prénom</span>
-                <span type="te  xt" class="input-group-text mx-auto span-outline">{{user.firstname}}</span>
+                <span type="text" class="input-group-text mx-auto span-outline">{{user?.firstname}}</span>
             </div>
             <div class="mt-2">
                 <span class="span-left">Email</span>
-                <span type="text" class="input-group-text mx-auto span-outline">{{user.email}}</span>
+                <span type="text" class="input-group-text mx-auto span-outline">{{user?.email}}</span>
             </div>
             <div class="mt-2">
                 <span class="span-left">Adresse</span>
-                <span type="text" class="input-group-text mx-auto span-outline">{{user.address}}</span>
+                <span type="text" class="input-group-text mx-auto span-outline">{{user?.address}}</span>
             </div>
             <div class="row justify-content-between mt-2">
                 <div class="col-6">
                     <span class="span-left">Ville</span>
-                    <span type="text" class="input-group-text mx-auto span-outline">{{user.town}}</span>
+                    <span type="text" class="input-group-text mx-auto span-outline">{{user?.town}}</span>
                 </div>
                 <div class="col-6">
                     <span class="span-left">Code Postal</span>
-                    <span type="text" class="input-group-text mx-auto span-outline">{{user.postalCode}}</span>
+                    <span type="text" class="input-group-text mx-auto span-outline">{{user?.postalCode}}</span>
                 </div>
             </div>
             <div class="mt-2">
                 <span class="span-left">Téléphone</span>
-                <span type="text" class="input-group-text mx-auto span-outline">{{user.phone}}</span>
+                <span type="text" class="input-group-text mx-auto span-outline">{{user?.phone}}</span>
             </div>
             <div class="mt-2">
                 <span class="span-left">Sexe</span>
                 <span type="text"
-                    class="input-group-text mx-auto span-outline">{{user.sexe == 1 ? 'Femme' : 'Homme'}}</span>
+                    class="input-group-text mx-auto span-outline">{{user?.sex == 1 ? 'Femme' : user?.sex == 0 ? 'Homme' : 'Autre'}}</span>
             </div>
         </div>
     </div>

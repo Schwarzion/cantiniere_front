@@ -5,6 +5,7 @@ import { IngredientRestControllerService } from '../../../services/ingredient-re
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { ValidateComponent } from '../validate/validate.component';
+import { IngredientFormComponent } from '../ingredient-form/ingredient-form.component';
 
 
 @Component({
@@ -56,35 +57,46 @@ export class IngredientDetailComponent implements OnInit {
     this.Ingredients.deleteIngredient(id)
       .subscribe(() => this.router.navigate(['/cantiniere/ingredients']));
   }
-
-  openDialog(action, id) {
-    this.dialogRef = this.dialog.open(ValidateComponent);
-
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      if (result == true) {
-        if (action == 'delete') {
-          this.delete(id);
-        } else {
-          this.editIngredient(id);
-        }
-      }
+/* 
+  openDeleteDialog(id) {
+    this.dialogRef = this.dialog.open(ValidateComponent, {
+      data: { ingredienId: id }
     });
+
+      this.dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+        if (result == true) {
+            this.delete(id);
+        }
+      });
+    } */
+
+    /* openFormDialog(id) {
+      this.dialogRef = this.dialog.open(IngredientFormComponent, {
+        data: { ingredienId: id }
+      });
+  
+        this.dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+          if (result == true) {
+              this.editIngredient(id);
+            }
+        });
+      } */
+
+    closeDialog() {
+      /*     this.dialog.closeAll(); */
+      this.dialogRef.closeAll();
+    }
+
+
+    editIngredient(id: number) {
+      console.log(this.ingredientForm.value);
+      this.Ingredients.editIngredient(this.ingredientForm.value, id)
+        .subscribe(() => console.dir(this.ingredientForm.value)
+          //this.getIngredient(id)
+        );
+    }
+
+
   }
-
-  closeDialog() {
-    /*     this.dialog.closeAll(); */
-    this.dialogRef.closeAll();
-  }
-
-
-  editIngredient(id: number) {
-    console.log(this.ingredientForm.value);
-    this.Ingredients.editIngredient(this.ingredientForm.value, id)
-      .subscribe(() => console.dir(this.ingredientForm.value)
-        //this.getIngredient(id)
-      );
-  }
-
-
-}

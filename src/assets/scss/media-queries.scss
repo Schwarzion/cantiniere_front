@@ -1,0 +1,7 @@
+// Exemple pour appliquer les queries :
+// media screen and (min-width: $mob) and (max-width: $tab) { width: .. }
+
+$mob: 320px;
+$tab: 767px;
+$desk: 1279px;
+$desk-xl: 1920px;

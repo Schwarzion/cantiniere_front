@@ -1,0 +1,12 @@
+@import 'src/assets/scss/_colors.scss';
+
+i {
+  color: $delete;
+}
+
+.meal-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

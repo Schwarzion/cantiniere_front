@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-top: 2px solid #004D5D;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: 45px;
+  }
+
+  &-logo {
+    transform: translate(-15px, -40px);
+
+    >img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &-informations {
+    font-size: 12px;
+    align-self: flex-end;
+    color: #323232;
+  }
+}

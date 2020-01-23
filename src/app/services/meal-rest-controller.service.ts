@@ -9,9 +9,15 @@ import { Observable } from 'rxjs';
 })
 export class MealRestControllerService {
 
+  private URL = `${environment.apiUrl}/meal`;
+
   constructor(private http: HttpClient) { }
 
   getWeekMeals(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/menu/findallavailablefortoday`);
+  }
+
+  getAllMeals(): Observable<any> {
+    return this.http.get(`${this.URL}/findall`);
   }
 }
