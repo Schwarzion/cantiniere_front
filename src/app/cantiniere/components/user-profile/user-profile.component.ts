@@ -25,7 +25,6 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUserProfile(this.id).subscribe(
       resp => {
         this.user = resp.body;
-        console.log(this.user);
       });
   }
 
@@ -35,7 +34,6 @@ export class UserProfileComponent implements OnInit {
 
   addFunds() {
     if (window.confirm(`Vous êtes sur le point de créditer ${this.user.firstname} ${this.user.name} la somme de ${this.amount} €`)) {
-      console.log('confirmer');
       this.userService.creditUser(this.user.id, this.amount).subscribe((res: User) => {
         this.user.wallet = res.wallet;
         this.isToggled = false;
@@ -76,9 +74,7 @@ export class UserProfileComponent implements OnInit {
     if (window.confirm(`Vous êtes sur le point de supprimer le compte de ${this.user.firstname} ${this.user.name}`)) {
       this.userService.deleteUser(this.user.id).subscribe((res: User) => {
         this.user.deleted = true;
-        console.log(res);
       });
-      console.log(this.user);
     }
     this.router.navigate([`/cantiniere/manage`]);
   }

@@ -3,7 +3,6 @@ import { User } from 'src/app/shared/models/User';
 import { OrderRestControllerService } from 'src/app/services/order-rest-controller.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-user-order-history',
   templateUrl: './user-order-history.component.html',
@@ -27,14 +26,12 @@ export class UserOrderHistoryComponent implements OnInit {
     });
     this.orderService.getDayOrderForUser(this.id).subscribe(resp => {
       this.history = resp;
-      console.log(resp);
     });
   }
 
   searchByDate() {
     this.today = false;
     this.orderService.getCreatedOderByDateForUser( '2000.01.01', '2020.01.12', this.id).subscribe(resp => {
-      console.log(resp);
       this.history = resp;
     });
   }

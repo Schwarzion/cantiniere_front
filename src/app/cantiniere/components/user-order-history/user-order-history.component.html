@@ -9,65 +9,61 @@
             <div class="col-auto">
                 <label for="end">Date de fin: </label>
                 <br />
-                <input id="end" type="date" [(ngModel)]="endDate" />
+                 <input id="end" type="date" [(ngModel)]="endDate" />
             </div>
             <div class="col-auto">
                 <button (click)="searchByDate()" class="btn btn-success">Valider</button>
             </div>
         </div>
     </div>
-
     <h3 *ngIf="today">Today History</h3>
-    <div *ngFor="let elem of history">
-        <div *ngIf=" elem.quantityMeals">
-            <div class="card m-3" *ngFor="let elems of elem.quantityMeals">
+    <div *ngFor="let order of history">
+        <div *ngIf="order.quantityMeals">
+            <div class="card m-3" *ngFor="let meal of order.quantityMeals">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-6">
-                            Repas {{ elems.meal.id }}
+                            Repas {{ meal.meal.id }}
                         </div>
                         <div class="col-6 text-right">
-                            {{ elems.meal.priceDF }} €
+                            {{ meal.meal.priceDF }} €
                         </div>
                     </div>
                 </div>
                 <div class="card-body list">
                     <div class="card result">
                         <div class="card-header">
-                            <img class="card-img-top" *ngIf="elems.meal.image" src="/assets/{{ elems.meal.image }}"
-                                alt="{{ elems.meal.image }}">
+                            <img class="card-img-top" *ngIf="meal.meal.image" src="/assets/{{ meal.meal.image }}" alt="{{ meal.meal.image }}">
                         </div>
                         <div class="card-body">
-                            {{ elems.meal.label }}
+                            {{ meal.meal.label }}
                         </div>
                         <div class="card-footer">
-                            {{ elems.meal.priceDF }} €
+                            {{ meal.meal.priceDF }} €
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
-                    Commandé le {{ elem.creationDate | date }} à {{ elem.creationDate | date:'shortTime' }}
+                    Commandé le {{ meal.creationDate | date }} à {{ meal.creationDate | date:'shortTime' }}
                 </div>
             </div>
         </div>
-
-        <div *ngIf="elem.menu">
+        <div *ngIf="order.menu">
             <div class="card m-3">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-6">
-                            {{ elem.menu.label }}
+                            {{ order.menu.label }}
                         </div>
                         <div class="col-6 text-right">
-                            {{ elem.menu.priceDF }} €
+                            {{ order.menu.priceDF }} €
                         </div>
                     </div>
                 </div>
                 <div class="card-body list">
-                    <div class="card result" *ngFor="let meals of elem.menu.meals">
+                    <div class="card result" *ngFor="let meals of order.menu.meals">
                         <div class="card-header">
-                            <img class="card-img-top" *ngIf="meals.image" src="/assets/{{ meals.image }}"
-                                alt="{{ meals.image }}">
+                            <img class="card-img-top" *ngIf="meals.image" src="/assets/{{ meals.image }}" alt="{{ meals.image }}">
                         </div>
                         <div class="card-body">
                             {{ meals.label }}
@@ -78,7 +74,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    Commandé le {{ elem.creationDate | date }} à {{ elem.creationDate | date:'shortTime' }}
+                    Commandé le {{ order.creationDate | date }} à {{ order.creationDate | date:'shortTime' }}
                 </div>
             </div>
         </div>
