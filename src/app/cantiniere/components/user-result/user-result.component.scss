@@ -1,1 +1,15 @@
 .vertbottom {vertical-align:bottom}
+
+.user-result {
+    right: 0;
+    border: 1px solid #004D5D;
+    border-radius: 9px;
+    color: #004D5D;
+    font-style: bold;
+    .btn {
+        // border: 1px solid #FF9900;
+        border-radius : 0 8px 8px 0; 
+        background-color: #004D5D;
+        color: #FF9900;
+    }
+}

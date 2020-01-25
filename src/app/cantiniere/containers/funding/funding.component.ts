@@ -27,7 +27,6 @@ export class FundingComponent implements OnInit {
 
   getResults(users) {
     this.searchResult = users;
-    console.log(this.searchResult);
   }
 
 }

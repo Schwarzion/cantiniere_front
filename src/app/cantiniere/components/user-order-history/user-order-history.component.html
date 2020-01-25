@@ -1,33 +1,86 @@
 <div class="container">
-    <div class="card m-3" *ngFor="let elem of history">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-6">
-                    {{ elem.menu.label }}
-                </div>
-                <div class="col-6">
-                    {{ elem.menu.priceDF }} €
-                </div>
+    <div class="col-6 mx-auto">
+        <div class="row">
+            <div class="col-auto">
+                <label for="start">Date de début: </label>
+                <br />
+                <input id="start" type="date" [(ngModel)]="startDate" />
             </div>
-
-
+            <div class="col-auto">
+                <label for="end">Date de fin: </label>
+                <br />
+                <input id="end" type="date" [(ngModel)]="endDate" />
+            </div>
+            <div class="col-auto">
+                <button (click)="searchByDate()" class="btn btn-success">Valider</button>
+            </div>
         </div>
-        <div class="card-body list">
-            <div class="card result" *ngFor="let meals of elem.menu.meals">
+    </div>
+
+    <h3 *ngIf="today">Today History</h3>
+    <div *ngFor="let elem of history">
+        <div *ngIf=" elem.quantityMeals">
+            <div class="card m-3" *ngFor="let elems of elem.quantityMeals">
                 <div class="card-header">
-                    <img class="card-img-top" *ngIf="meals.image" src="/assets/{{ meals.image }}"
-                        alt="{{ meals.image }}">
+                    <div class="row">
+                        <div class="col-6">
+                            Repas {{ elems.meal.id }}
+                        </div>
+                        <div class="col-6 text-right">
+                            {{ elems.meal.priceDF }} €
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    {{ meals.label }}
+                <div class="card-body list">
+                    <div class="card result">
+                        <div class="card-header">
+                            <img class="card-img-top" *ngIf="elems.meal.image" src="/assets/{{ elems.meal.image }}"
+                                alt="{{ elems.meal.image }}">
+                        </div>
+                        <div class="card-body">
+                            {{ elems.meal.label }}
+                        </div>
+                        <div class="card-footer">
+                            {{ elems.meal.priceDF }} €
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer">
-                    {{ meals.priceDF }} €
+                    Commandé le {{ elem.creationDate | date }} à {{ elem.creationDate | date:'shortTime' }}
                 </div>
             </div>
         </div>
-        <div class="card-footer">
-            Commandé le {{ elem.creationDate | date }} à {{ elem.creationDate | date:'shortTime' }}
+
+        <div *ngIf="elem.menu">
+            <div class="card m-3">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            {{ elem.menu.label }}
+                        </div>
+                        <div class="col-6 text-right">
+                            {{ elem.menu.priceDF }} €
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body list">
+                    <div class="card result" *ngFor="let meals of elem.menu.meals">
+                        <div class="card-header">
+                            <img class="card-img-top" *ngIf="meals.image" src="/assets/{{ meals.image }}"
+                                alt="{{ meals.image }}">
+                        </div>
+                        <div class="card-body">
+                            {{ meals.label }}
+                        </div>
+                        <div class="card-footer">
+                            {{ meals.priceDF }} €
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    Commandé le {{ elem.creationDate | date }} à {{ elem.creationDate | date:'shortTime' }}
+                </div>
+            </div>
         </div>
     </div>
 </div>

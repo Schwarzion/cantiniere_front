@@ -1,8 +1,7 @@
 <div>
   <div class="header">
     <h2>Commander un plat</h2>
-    <p *ngIf="hasFailed === false">Votre commande a bien été prise en compte</p>
-    <p *ngIf="hasFailed && hasFailed.length > 1">{{hasFailed}}</p>
+    <p *ngIf="hasSubmitted">Votre commande a été ajoutée à votre panier</p>
     <button (click)="validate()">Valider</button>
   </div>
   <div *ngIf="menusAvailable" class="row">
@@ -19,4 +18,5 @@
       </div>
     </div>
   </div>
+  <button (click)="openMealListModal()" class="btn-primary">Repas à l'unité</button>
 </div>

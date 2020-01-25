@@ -58,6 +58,7 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
+    console.log(this.form.controls);
     this.submitted = true;
     if (this.form.invalid) {
       console.log('nok');
