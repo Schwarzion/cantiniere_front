@@ -27,8 +27,8 @@ export class IngredientsComponent implements OnInit {
   }
 
   
-  addIngredient(data: []){
+/*   addIngredient(data: []){
     this.Ingredients.addIngredient(data)
     .subscribe(() => this.getIngredients());
-  }
+  } */
 }

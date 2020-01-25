@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { throwError as observableThrowError, Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable, Subject } from 'rxjs';
 import { of } from 'rxjs';
 
 import { environment } from '../../environments/environment';
@@ -38,6 +38,10 @@ export class UserService {
     return this.http.get(`${this.URL}/find/` + jwt.decodeToken(this.userToken).user.id, { observe: 'response' });
   }
 
+  getUserProfile(id): Observable<any> {
+    return this.http.get(`${this.URL}/find/` + id, { observe: 'response' });
+  }
+
   getUserToken() {
     return this.userToken;
   }
@@ -46,6 +50,7 @@ export class UserService {
     if (this.user) {
       return of(this.user);
     }
+    return of(null);
   }
 
   setUser() {
@@ -94,7 +99,6 @@ export class UserService {
   deactivateUser(userId: number) {
     return this.http.patch(`${this.URL}/deactivate/${userId}`, {});
   }
-
 
   activateUser(userId: number) {
     return this.http.patch(`${this.URL}/activate/${userId}`, {});

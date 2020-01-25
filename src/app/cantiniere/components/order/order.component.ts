@@ -12,12 +12,26 @@ export class OrderComponent implements OnInit {
 
   isToggled = false;
 
+  quantityMeals = [];
+
   constructor(private orderService: OrderRestControllerService) {}
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   toggleOrder() {
     this.isToggled = !this.isToggled;
+  }
+
+  getTotalOrderPrice() {
+    if (this.order.menu) {
+      return this.order.menu.priceDF;
+    } else if (this.order.quantityMeals) {
+      let total = 0;
+      for (const item of this.order.quantityMeals) {
+        total += item.meal.priceDF;
+      }
+      return total;
+    }
   }
 
   validateOrder() {

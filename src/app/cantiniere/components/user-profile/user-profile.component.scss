@@ -1,0 +1,64 @@
+.btn-blue {
+    border: 1px solid #FF9900;
+    border-radius: 9px;
+    color: #FF9900;
+}
+
+.btn-orange {
+    border: 1px solid #004D5D;
+    border-radius: 9px;
+    color: #004D5D;
+}
+
+.alert-custom {
+    background-color: white;
+    border: 1px solid #FF9900;
+    color: #FF9900;
+}
+
+p { 
+    color: #FF9900;
+}
+
+.tab-pane {
+    span {
+        color:  #FF9900;
+    }
+    h5 {
+        color: #004D5D;
+    }
+    hr {
+        color: #004D5D;
+    }
+}
+
+.nav-link {
+    color:  #FF9900;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+.toggle-input {
+    width: 50%;
+}
+
+
+.input-outline {
+    background: #FFFFFF;
+    border-radius: 9px;
+}
+
+.full-width-tabs > ul.nav.nav-tabs {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.full-width-tabs > ul.nav.nav-tabs > li {
+    float: none;
+    display: table-cell;
+}
+.full-width-tabs > ul.nav.nav-tabs > li > a {
+    text-align: center;
+}

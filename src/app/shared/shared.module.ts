@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { ErrorService } from '../services/error.service';
 import { ErrorInterceptor } from '../interceptors/error.interceptor';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [...shared.component],

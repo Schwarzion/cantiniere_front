@@ -7,6 +7,7 @@ import { UserOrderHistoryComponent } from './user-order-history/user-order-histo
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { IngredientDetailComponent } from './ingredient-detail/ingredient-detail.component';
@@ -22,6 +23,7 @@ export const component = [
   MenuListComponent,
   AddMenuComponent,
   MenuItemComponent,
+  UserProfileComponent,
   IngredientsComponent,
   IngredientDetailComponent,
   ValidateComponent,
@@ -36,6 +38,7 @@ export * from './user-order-history/user-order-history.component';
 export * from './menu-list/menu-list.component';
 export * from './add-menu/add-menu.component';
 export * from './menu-item/menu-item.component';
+export * from './user-profile/user-profile.component';
 export * from './ingredients/ingredients.component';
 export * from './ingredient-detail/ingredient-detail.component';
 export * from './validate/validate.component';

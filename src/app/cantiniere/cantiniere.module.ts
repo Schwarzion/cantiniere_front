@@ -6,6 +6,7 @@ import { CantiniereRoutingModule } from './cantiniere-routing.module';
 import * as cantiniere from './components/index';
 import { containers } from './containers/index';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS, MAT_DIALOG_DATA } from '@angular/material';
 
 @NgModule({
   declarations: [...cantiniere.component, ...containers],
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     CantiniereRoutingModule,
     SharedModule,
     RouterModule,
+    MatDialogModule
   ],
 })
 export class CantiniereModule {}

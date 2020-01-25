@@ -16,7 +16,6 @@ export class IngredientRestControllerService {
     return this.http.get<any>(`${environment.apiUrl}/ingredient/findall`)
       .pipe(
         tap(data => {
-          console.log('rdgvfbghndcncnhghnhgncfbtghb');
           console.log(data);
         }),
         catchError(this.handleError('getIngredients', []))
@@ -24,7 +23,8 @@ export class IngredientRestControllerService {
   }
 
   getIngredient(id: number): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/ingredient/find/${id}`)
+    console.log('rdgvfbghndcncnhghnhgncfbtghb');
+    return this.http.get<any>(`${environment.apiUrl}/ingredient/find/`+ id)
       .pipe(
         tap(data => {
           console.log(data);

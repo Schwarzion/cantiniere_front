@@ -7,7 +7,7 @@
         <img src="http://localhost:8080/lunchtime/{{ ingredient.image }}" alt="">
         <p>{{ ingredient.label }}</p>
         <p>{{ ingredient.description }}</p>
-<!--         <button mat-button (click)="openEdDialog(ingredient.id)">Mettre a jour</button>
- -->        <!-- <button mat-button (click)="openDelDialog(ingredient.id)">Supprimer</button> -->
+        <button mat-button (click)="openEditDialog(ingredient.id)">Mettre a jour</button>
+        <button mat-button (click)="openDeleteDialog(ingredient.id)">Supprimer</button>
     </div>
 </div>

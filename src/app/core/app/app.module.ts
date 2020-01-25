@@ -10,7 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, base.HomeComponent],
-  imports: [CommonModule, AppRoutingModule, HttpClientModule, SharedModule],
+  imports: [CommonModule, AppRoutingModule, HttpClientModule, SharedModule, MatDialogModule],
   providers: [],
   bootstrap: [AppComponent],
 })
