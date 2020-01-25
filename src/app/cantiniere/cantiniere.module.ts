@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
     CantiniereRoutingModule,
     SharedModule,
     RouterModule,
+    MatDialogModule
   ],
 })
 export class CantiniereModule {}

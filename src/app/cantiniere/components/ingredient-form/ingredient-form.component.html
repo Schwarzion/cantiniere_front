@@ -1,0 +1,30 @@
+<p>ingredient-form works!</p>
+<h1 mat-dialog-title>Formulaire d'indgredient</h1>
+<!-- <div mat-dialog-content (ngSubmit)="addIngredient('add')" #add="ngForm">
+    <label for="">Label</label>
+    <input name="label" id="label" type="text" formControlName="label" placeholder="label">
+    <label for="">Status</label>
+    <input name="description" id="description" type="text" formControlName="description" placeholder="description">
+</div>
+<div mat-dialog-actions>
+    <button mat-dialog-close]="true" type="submit">Ajouter</button>
+    <button mat-dialog-close]="false" type="submit">Annuler</button>
+</div> -->
+<div mat-dialog-content [formGroup]="ingredientForm">
+    <form>
+
+        <label mat-label for="label">Label</label>
+        <input matInput name="label" id="label" type="text" [formControlName]="label" placeholder="label">
+
+        <label mat-label for="image">Image</label>
+        <input matInput name="image" id="image" type="text" [formControlName]="image" placeholder="image">
+
+        <label mat-label for="description">Description</label>
+        <input matInput name="description" id="description" type="text" [formControlName]="description" placeholder="description">
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="mat-raised-button mat-primary" (click)="editIngredient()" type="submit">Editer</button>
+    <button mat-button class="mat-raised-button" (click)="closeDialog()" type="submit">Annuler</button>
+</div>

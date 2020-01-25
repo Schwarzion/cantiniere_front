@@ -10,7 +10,7 @@ export class IngredientsComponent implements OnInit {
 
   constructor(private Ingredients:IngredientRestControllerService) { }
 
-  ingredients:     any;
+  ingredients: any;
 
   ngOnInit() {
 
@@ -27,8 +27,8 @@ export class IngredientsComponent implements OnInit {
   }
 
   
-  addIngredient(data: []){
+/*   addIngredient(data: []){
     this.Ingredients.addIngredient(data)
     .subscribe(() => this.getIngredients());
-  }
+  } */
 }
