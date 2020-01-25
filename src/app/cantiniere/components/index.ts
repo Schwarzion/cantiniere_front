@@ -7,6 +7,8 @@ import { MenuListComponent } from './menu-list/menu-list.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ManageMealsComponent } from './manage-meals/manage-meals.component';
+import { AddMealComponent } from './add-meal/add-meal.component';
 
 export const component = [
   OrdersListComponent,
@@ -18,6 +20,8 @@ export const component = [
   AddMenuComponent,
   MenuItemComponent,
   UserProfileComponent,
+  ManageMealsComponent,
+  AddMealComponent,
 ];
 
 export * from './orders-list/orders-list.component';
@@ -29,3 +33,5 @@ export * from './menu-list/menu-list.component';
 export * from './add-menu/add-menu.component';
 export * from './menu-item/menu-item.component';
 export * from './user-profile/user-profile.component';
+export * from './manage-meals/manage-meals.component';
+export * from './add-meal/add-meal.component';
