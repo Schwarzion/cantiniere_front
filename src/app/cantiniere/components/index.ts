@@ -8,6 +8,8 @@ import { MenuListComponent } from './menu-list/menu-list.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ManageMealsComponent } from './manage-meals/manage-meals.component';
+import { AddMealComponent } from './add-meal/add-meal.component';
 
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { IngredientDetailComponent } from './ingredient-detail/ingredient-detail.component';
@@ -27,7 +29,9 @@ export const component = [
   IngredientsComponent,
   IngredientDetailComponent,
   ValidateComponent,
-  IngredientFormComponent
+  IngredientFormComponent,
+  ManageMealsComponent,
+  AddMealComponent,
 ];
 
 export * from './orders-list/orders-list.component';
@@ -43,3 +47,5 @@ export * from './ingredients/ingredients.component';
 export * from './ingredient-detail/ingredient-detail.component';
 export * from './validate/validate.component';
 export * from './ingredient-form/ingredient-form.component';
+export * from './manage-meals/manage-meals.component';
+export * from './add-meal/add-meal.component';

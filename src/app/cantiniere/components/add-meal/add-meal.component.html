@@ -1,0 +1,51 @@
+<div class="form-list__pres">
+  <div class="form-list__pres--content">
+    <h2 class="h2">Gestion des repas</h2>
+    <div class="form-list__pres--background"></div>
+  </div>
+</div>
+<form class="form-list container" *ngIf="mealForm" [formGroup]="mealForm" (ngSubmit)="sendMeal()">
+  <div class="col mb-3">
+    <h3 class="h3">Choix des repas </h3>
+    <div class="form-row form-list__search">
+      <div class="col-3 form-list__input">
+        <label for="label">Nom</label>
+        <input id="label" formControlName="label" type="text" />
+      </div>
+
+      <div class="col-3 form-list__input">
+        <label for="description">Description</label>
+        <input id="description" formControlName="description" type="text" />
+      </div>
+      <div class="col-3 form-list__input">
+        <label for="price">Prix</label>
+        <input id="price" formControlName="price" type="text" placeholder="€" />
+      </div>
+    </div>
+  </div>
+  <div class="col mb-3">
+    <h3 class="h3 mb-3">Choix des semaines </h3>
+    <div class="col-3 form-list__week">
+      <input formControlName="weekInput" type="number" min="1" max="52" />
+      <button class="btn-link--orange form-list__week--action" (click)="addWeekNumber()">Ajouter</button>
+    </div>
+    <div class="form-list__result">
+      <label>Semaines :</label>
+      <p *ngFor="let week of weeksNumber; let i = index">{{week}}<i (click)="removeWeekNumber(week)"
+          class="material-icons">remove_circle_outline</i></p>
+    </div>
+  </div>
+  <div class="col mb-3 form-list__meals">
+    <h3 class="h3">Ingrédients <span><i class="material-icons" style="color: #248c26"
+          (click)="openIngredientListModal()">add</i></span></h3>
+    <div class="meal-list">
+      <div class="meal-list__items" *ngFor="let ingredient of ingredients">
+        <p>{{ingredient.label}} <i (click)="removeMeal(ingredient.id)" class="material-icons">remove_circle_outline</i></p>
+        <img src="/assets/{{ingredient.image}}" [alt]="ingredient.image" />
+      </div>
+    </div>
+  </div>
+  <div class="form-list__action">
+    <button class="btn-link--orange  form-list__action--btn" type="submit">Valider</button>
+  </div>
+</form>
