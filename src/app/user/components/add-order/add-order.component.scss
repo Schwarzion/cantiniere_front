@@ -199,5 +199,36 @@
       margin-bottom: 20px;
       box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
     }
+
+    &--content {
+      border-bottom: 2px solid #F4F4F4;
+      margin-bottom: 10px;
+
+      input {
+        display: flex;
+        margin: 0 auto;
+        padding: 2px 5px;
+        margin-bottom: 15px;
+        border: 1px solid $orange;
+        border-radius: 3px;
+      }
+    }
+
+    &--meal {
+      color: $secondary;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    &--picture {
+      width: 100%;
+      min-height: 130px;
+      max-height: 130px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &--add {}
   }
 }
