@@ -18,54 +18,6 @@ export class UserResultComponent implements OnInit {
 
   ngOnInit() { }
 
-  // toggleFunding() {
-  //   this.isToggled = !this.isToggled;
-  // }
-
-  // addFunds() {
-  //   if (window.confirm(`Vous êtes sur le point de créditer ${this.user.firstname} ${this.user.name} la somme de ${this.amount} €`)) {
-  //     console.log('confirmer');
-  //     this.userService.creditUser(this.user.id, this.amount).subscribe((res: User) => {
-  //       this.user.wallet = res.wallet;
-  //       this.isToggled = false;
-  //     });
-  //   }
-  // }
-
-  // editStatus() {
-  //   if (this.user.status === 1) {
-  //     console.log('Activate');
-  //     if (window.confirm(`Vous êtes sur le point d'activer ${this.user.firstname} ${this.user.name}`)) {
-  //       console.log('confirmer');
-  //       this.userService.activateUser(this.user.id).subscribe((res: User) => {
-  //         this.user.status = res.status;
-  //       });
-  //     }
-  //   } else if (this.user.status === 0) {
-  //     console.log('Deactivate');
-  //     if (window.confirm(`Vous êtes sur le point de désactiver ${this.user.firstname} ${this.user.name}`)) {
-  //       console.log('confirmer');
-  //       this.userService.deactivateUser(this.user.id).subscribe((res: User) => {
-  //         this.user.status = res.status;
-  //       });
-  //     }
-  //   }
-  // }
-
-  // orderHistory() {
-  //   const id = this.user.id;
-  //   this.router.navigate([`/cantiniere/userhistory`, id]);
-  // }
-
-  // deleteUser() {
-  //   if (window.confirm(`Vous êtes sur le point de supprimer le compte de ${this.user.firstname} ${this.user.name}`)) {
-  //     console.log('confirmer');
-  //     this.userService.deleteUser(this.user.id).subscribe((res: User) => {
-  //       this.user.deleted = true;
-  //     });
-  //   }
-  // }
-
   goToProfile() {
     const id = this.user.id;
     this.router.navigate([`/cantiniere/userprofile`, id]);

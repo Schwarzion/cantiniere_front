@@ -58,12 +58,8 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
-    console.log(this.form.controls);
     this.submitted = true;
-    if (this.form.invalid) {
-      console.log('nok');
-      console.log(this.form);
-    } else {
+    if (this.form.valid) {
       this.userService.editUser(this.form.value, this.user.id).subscribe(resp => {
         this.user = resp.body;
       });

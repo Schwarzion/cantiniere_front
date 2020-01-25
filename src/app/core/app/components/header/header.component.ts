@@ -15,7 +15,7 @@ import { from } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   animations: [trigger('fade', [
-    state('void', style({opacity: 0})),
+    state('void', style({ opacity: 0 })),
     transition(':enter', [animate(100)]),
     transition(':leave', [animate(300)]),
   ])]
@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit {
       navbar.classList.add('sticky');
     } else {
       let navbar = document.getElementById('navbar');
-      this.navbar.classList.remove('sticky');
+      navbar.classList.remove('sticky');
     }
   }
 }
