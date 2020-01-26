@@ -1,7 +1,9 @@
 <div class="container-fluid col-6">
+
     <div class="text-center m-2">
         Création de compte
     </div>
+
     <div class="bg-light custom-box custom-span">
         <div class="col-6 mx-auto">
             <form [formGroup]="form" (ngSubmit)="submit(form)">
@@ -100,6 +102,12 @@
                 </div>
                 <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">
                     <div *ngIf="f.sex.errors.required">Gender is required</div>
+                </div>
+                <div *ngIf="email" class="text-center m-2 ">
+                    Cet email est déjà renseigné dans la base de données. Si vous ne disposez plus du mot de passe associé rendez vous ici : 
+                    <button class="my-2 btn-link--blue" [routerLink]="['/forgotpassword']">
+                        Mot de passe oublié
+                    </button>
                 </div>
                 <div class="text-center mx-auto">
                     <button type="submit" class="btn btn-outline w-50 mt-3">Valider les changements</button>
