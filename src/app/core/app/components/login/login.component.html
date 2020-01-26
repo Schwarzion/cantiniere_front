@@ -1,12 +1,13 @@
 <form [formGroup]="loginForm" mat-dialog-content class="text-center" (ngSubmit)="sendLogin()">
   <div>
-    <label for="email">Email:</label>
-    <input id="email" type="text" formControlName="email" placeholder="email" />
+    <label  for="email">Email:</label>
+    <input class="span-outline" id="email" type="text" formControlName="email" placeholder="email" />
   </div>
   <div>
     <label for="password">Mot de passe:</label>
-    <input id="password" type="password" formControlName="password"  placeholder="password"/>
+    <input class="span-outline" id="password" type="password" formControlName="password" placeholder="password" />
   </div>
-  <button class="btn" type="button" (click)="sendLogin()">Connexion</button>
+  <button class="btn-link--orange" type="button" (click)="sendLogin()">Connexion</button>
 </form>
-<button (click)="requestPassword()" [routerLink]="['/forgotpassword']" class="btn">Mot de passe oublié ?</button>
+<small><button (click)="requestPassword()" [routerLink]="['/forgotpassword']" class="btn-link--orange">Mot de passe
+    oublié ?</button></small>
