@@ -2,14 +2,15 @@
   <p *ngIf="order.menu">
     {{order.menu.label}}
   </p>
-  <p>
+  <p class="order-item">
     <span>
       {{order.user.firstname}} {{order.user.name}} ({{order.user.wallet}}€)
     </span>
     <span> | {{ getTotalOrderPrice() }} €</span>
   </p>
-  <div *ngIf="order.quantityMeals && isToggled" class="meal">
-    <div *ngFor="let order of order.quantityMeals">
+  <p class="order-item--more">Cliquez pour plus d'informations<i class="material-icons">chevron_right</i></p>
+  <div *ngIf="order.quantityMeals && isToggled" class="order-meal">
+    <div class="order-meal__content" *ngFor="let order of order.quantityMeals">
       <p>{{order.quantity}} {{order.meal.label}}</p>
       <img src="/assets/{{order.meal.image}}" [alt]="order.meal.image" />
     </div>
@@ -20,8 +21,9 @@
       <img src="/assets/{{meal.image}}" [alt]="meal.image" />
     </div>
   </div>
-  <div *ngIf="isToggled">
-    <button (click)="validateOrder()" [disabled]="getTotalOrderPrice() > order.user.wallet">Valider la commande</button>
-    <button (click)="cancelOrder()">Refuser la commande</button>
+  <div class="order-meal__buttons" *ngIf="isToggled">
+    <button class="btn-link--orange order-meal__buttons--button" (click)="validateOrder()"
+      [disabled]="getTotalOrderPrice() > order.user.wallet">Valider la commande</button>
+    <button class="btn-link--blue order-meal__buttons--button" (click)="cancelOrder()">Refuser la commande</button>
   </div>
 </div>

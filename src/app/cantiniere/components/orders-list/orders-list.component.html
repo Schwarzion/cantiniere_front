@@ -1,13 +1,23 @@
-<div class="header">
-  <label for="start">Date de début: </label>
-  <input id="start" type="date" [(ngModel)]="startDate" />
-  <br />
-  <label for="end">Date de fin: </label>
-  <input id="end" type="date" [(ngModel)]="endDate" />
-  <button (click)="getOrdersByDate()">Valider</button>
+<div class="order-list__pres">
+  <h2 class="h2">Visualisation des commandes</h2>
+  <div class="order-list__pres--picture"></div>
 </div>
-<div class="list">
-  <app-order *ngFor="let order of orders" [order]="order" (sendOrderAction)="orderAction($event)">
+<div class="order-list container">
+  <div class="order-list__actions">
+    <label for="start">Date de début</label>
+    <input id="start" type="date" [(ngModel)]="startDate" />
+  </div>
+  <div class="order-list__actions">
+    <label for="end">Date de fin</label>
+    <input id="end" type="date" [(ngModel)]="endDate" />
+  </div>
+  <div class="order-list__line">
+    <button class="btn-link--blue" (click)="getOrdersByDate()">Valider</button>
+  </div>
+</div>
+<div class="order-list__container container">
+  <app-order class="order-list__content" *ngFor="let order of orders" [order]="order"
+    (sendOrderAction)="orderAction($event)">
   </app-order>
-  <p *ngIf="orders && orders.length === 0">Aucune commande trouvée pour ce jour.</p>
+  <p class="container" *ngIf="orders && orders.length === 0">Aucune commande trouvée pour ce jour.</p>
 </div>

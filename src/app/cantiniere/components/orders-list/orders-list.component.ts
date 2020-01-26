@@ -27,6 +27,7 @@ export class OrdersListComponent implements OnInit {
 
     this.orderService.getOrdersByDate(this.todayDate.string, tomorrow).subscribe(orders => {
       this.orders = orders;
+      console.log('orders', this.orders)
     }, err => console.dir(err));
   }
 
