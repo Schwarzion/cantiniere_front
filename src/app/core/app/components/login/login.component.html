@@ -8,6 +8,6 @@
     <input id="password" type="password" formControlName="password"  class="mx-auto span-outline" placeholder="password"/>
   </div>
   <button class="btn btn-link--blue btn-outline-blue mt-4" type="button" (click)="sendLogin()">Connexion</button>
-  <button class="btn btn-link--orange btn-outline-orange mt-3" (click)="requestPassword()" [routerLink]="['/forgotpassword']">Mot de passe oublié ?</button>
+  <a class="btn btn-link--orange btn-outline-orange mt-3" href="/forgotpassword">Mot de passe oublié ?</a>
 </form>
 <button (click)="requestPassword()" [routerLink]="['/forgotpassword']" class="btn">Mot de passe oublié ?</button>
