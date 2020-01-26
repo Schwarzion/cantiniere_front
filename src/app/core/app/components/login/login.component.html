@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" mat-dialog-content class="text-center">
+<form [formGroup]="loginForm" mat-dialog-content class="text-center" (ngSubmit)="sendLogin()">
   <div>
     <label for="email">Email:</label>
     <input id="email" type="text" formControlName="email" placeholder="email" />
@@ -7,6 +7,6 @@
     <label for="password">Mot de passe:</label>
     <input id="password" type="password" formControlName="password"  placeholder="password"/>
   </div>
-  <button class="btn" type="button" (click)="sendLogin()">Connexion</button>
-  <button (click)="requestPassword()" [routerLink]="['/forgotpassword']" class="btn">Mot de passe oublié ?</button>
+  <button class="btn" type="submit">Connexion</button>
 </form>
+<button (click)="requestPassword()" [routerLink]="['/forgotpassword']" class="btn">Mot de passe oublié ?</button>
