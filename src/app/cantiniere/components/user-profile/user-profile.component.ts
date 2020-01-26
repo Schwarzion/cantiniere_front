@@ -41,7 +41,6 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-    //TODO: refacto
   editStatus() {
     if (this.user.status === 1) {
       if (window.confirm(`Vous êtes sur le point d'activer ${this.user.firstname} ${this.user.name}`)) {
@@ -75,8 +74,8 @@ export class UserProfileComponent implements OnInit {
       this.userService.deleteUser(this.user.id).subscribe((res: User) => {
         this.user.deleted = true;
       });
+      this.router.navigate([`/cantiniere/manage`]);
     }
-    this.router.navigate([`/cantiniere/manage`]);
   }
 
   goToProfile() {

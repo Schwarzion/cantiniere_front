@@ -6,7 +6,8 @@ import {
   AddMenuComponent,
   UserProfileComponent
 } from './components';
-import { FundingComponent, MenuComponent } from './containers';
+import { FundingComponent, MenuComponent, MealComponent } from './containers';
+import { AddMealComponent } from './components/add-meal/add-meal.component';
 
 const routes: Routes = [
   { path: 'orders', component: OrdersListComponent },
@@ -17,8 +18,11 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'menu/add', component: AddMenuComponent },
   { path: 'menu/edit/:id', component: AddMenuComponent },
+  { path: 'meal', component: MealComponent },
+  { path: 'meal/add', component: AddMealComponent },
+  { path: 'meal/edit/:id', component: AddMealComponent },
   // Redirection en cas de route non trouvée
-  { path: '**', component: FundingComponent},
+  { path: '**', component: FundingComponent },
 ];
 
 @NgModule({

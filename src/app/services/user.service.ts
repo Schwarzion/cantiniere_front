@@ -107,4 +107,8 @@ export class UserService {
   deleteUser(userId: number) {
     return this.http.delete(`${this.URL}/delete/${userId}`, {});
   }
+
+  forgotPassword(email: string) {
+    return this.http.post(`${environment.apiUrl}/forgotpassword?email=${email}`, {});
+  }
 }

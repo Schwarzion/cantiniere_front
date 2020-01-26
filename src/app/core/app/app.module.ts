@@ -8,8 +8,9 @@ import { LoginComponent } from './components/login/login.component';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+
 @NgModule({
-  declarations: [AppComponent, base.HomeComponent],
+  declarations: [AppComponent, base.HomeComponent, base.ForgotPasswordComponent],
   imports: [CommonModule, AppRoutingModule, HttpClientModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],

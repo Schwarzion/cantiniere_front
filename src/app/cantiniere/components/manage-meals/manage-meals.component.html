@@ -1,0 +1,47 @@
+<div class="menu-list__btn">
+  <button class="btn-link--blue" [routerLink]="['add']">Ajouter</button>
+</div>
+<div class="list">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Nom
+        </th>
+        <th>
+          Prix
+        </th>
+        <th>
+          Semaines
+        </th>
+        <th>
+          Ingrédients
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let meal of meals">
+        <td>{{meal.label}}</td>
+        <td>{{meal.priceDF}} €</td>
+        <td>
+          <span *ngFor="let week of meal.availableForWeeks; let i = index">
+            {{week}}
+            {{i === meal.availableForWeeks.length - 1 ? '' : ',&nbsp;'}}
+          </span>
+        </td>
+        <td>
+          <label *ngFor="let ingredient of meal.ingredients; let j = index">
+            {{ingredient.label}}{{j === meal.ingredients.length - 1 ? '' : ', &nbsp;'}}
+          </label>
+        </td>
+        <td>
+          <i class="material-icons" [routerLink]="['edit', meal.id]">edit</i>
+          <i class="material-icons" (click)="deleteMeal(meal.id)" style="color: #b8360f">delete</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

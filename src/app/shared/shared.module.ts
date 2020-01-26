@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import * as shared from './components/index';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatDialogModule, MatSnackBarModule } from '@angular/material';
+import {
+  MatDialogModule,
+  MatSnackBarModule,
+  MatDialog,
+} from '@angular/material';
 import { ErrorService } from '../services/error.service';
 import { ErrorInterceptor } from '../interceptors/error.interceptor';
-import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [...shared.component],
@@ -33,6 +36,6 @@ import { CartComponent } from './components/cart/cart.component';
       deps: [ErrorService],
     },
   ],
-  entryComponents: [shared.MealListComponent],
+  entryComponents: [shared.MealListComponent, shared.IngredientListComponent],
 })
 export class SharedModule {}

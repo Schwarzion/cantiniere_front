@@ -3,6 +3,14 @@
 .user-add {
   margin-top: 100px;
 
+  .btn-link {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .more {
+    font-size: 32px;
+  }
   button {
     z-index: 2;
     position: fixed;
