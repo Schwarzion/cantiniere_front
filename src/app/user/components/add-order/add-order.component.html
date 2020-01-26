@@ -17,7 +17,7 @@
       <div *ngFor="let meal of menu.meals; let i = index">
         <div class="user-add__item--content">
           <p class="user-add__item--meal">{{meal.label}}</p>
-          <img class="user-add__item--picture" src="/assets/{{meal.image}}" [alt]="meal.image" />
+          <img class="user-add__item--picture" src="{{ envURL }}/img/meal/{{meal.label}}.png" [alt]="meal.label" />
           <input class="user-add__item--add" *ngIf="menu.id === selectedMealId" id="quantity" type="number"
             [(ngModel)]="mealsQuantity[i].quantity" />
         </div>

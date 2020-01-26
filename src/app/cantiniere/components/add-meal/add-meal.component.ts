@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { IngredientListComponent } from 'src/app/shared/components';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-meal',
@@ -25,10 +26,13 @@ export class AddMealComponent implements OnInit {
 
   isIngredientListToggled = false;
 
+  envURL;
+
   constructor(private route: ActivatedRoute, private mealService: MealRestControllerService, public matDialog: MatDialog) { }
 
   ngOnInit() {
     this.initComponent();
+    this.envURL = environment.apiUrl;
   }
 
   initComponent() {

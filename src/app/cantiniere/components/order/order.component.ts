@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { OrderRestControllerService } from 'src/app/services/order-rest-controller.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-order',
@@ -14,9 +15,14 @@ export class OrderComponent implements OnInit {
 
   quantityMeals = [];
 
+  envURL;
+
   constructor(private orderService: OrderRestControllerService) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.envURL = environment.apiUrl;
+    console.log(this.order);
+  }
 
   toggleOrder() {
     this.isToggled = !this.isToggled;

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { IngredientRestControllerService } from 'src/app/services/ingredient-rest-controller.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -13,6 +14,7 @@ export class IngredientListComponent implements OnInit {
 
   selectedIngredients = [];
   selectedIds = [];
+  envURL;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -21,6 +23,7 @@ export class IngredientListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.envURL = environment.apiUrl;
     this.getAllIngredients();
     this.selectedIds = this.data.ingredientIds;
     this.selectedIngredients = this.data.ingredients;

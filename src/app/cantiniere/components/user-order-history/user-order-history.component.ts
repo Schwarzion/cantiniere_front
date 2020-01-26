@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/shared/models/User';
 import { OrderRestControllerService } from 'src/app/services/order-rest-controller.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-order-history',
@@ -19,7 +20,10 @@ export class UserOrderHistoryComponent implements OnInit {
   startDate;
   endDate;
 
+  envURL;
+
   ngOnInit() {
+    this.envURL = environment.apiUrl;
     this.today = true;
     this.sub = this.route.params.subscribe(params => {
       this.id = +params.id;

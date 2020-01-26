@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/models/User';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,9 +17,12 @@ export class UserProfileComponent implements OnInit {
   isToggled = false;
   amount: number;
 
+  envURL;
+
   constructor(private router: Router, private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.envURL = environment.apiUrl;
     this.route.url.pipe(switchMap(url => url)).subscribe(
       map => this.id = map.path
     );

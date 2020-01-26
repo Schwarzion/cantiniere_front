@@ -6,6 +6,7 @@ import { switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { MealListComponent } from 'src/app/shared/components';
 import { of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-menu',
@@ -27,9 +28,12 @@ export class AddMenuComponent implements OnInit {
 
   menuForm: FormGroup;
 
+  envURL;
+
   constructor(private route: ActivatedRoute, private menuService: MenuRestControllerService, public matDialog: MatDialog) { }
 
   ngOnInit() {
+    this.envURL = environment.apiUrl;
     this.route.url.pipe(
       switchMap(url => {
         if (url.length === 3) {

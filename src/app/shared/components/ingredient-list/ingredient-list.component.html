@@ -10,7 +10,7 @@
         <span class="ingredient-list__selected">{{isSelected(ingredient.id) ? 'V' : 'X'}}</span>
         <p class="ingredient-list__title">{{ingredient.label}}</p>
       </div>
-      <img src="/assets/{{ingredient.image}}" [alt]="ingredient.image" />
+      <img src="{{ envURL }}/img/ingredient/{{ingredient.label}}.png" [alt]="ingredient.image" />
     </div>
   </div>
 </div>

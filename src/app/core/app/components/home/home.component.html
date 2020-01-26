@@ -39,7 +39,7 @@
   <div class="card-content container">
     <div class="card-container" *ngFor="let menu of menuList">
       <div class="card" *ngIf="menu.meals">
-        <img class="card-img-top" src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/{{menu.meals[0].image}}"
+        <img class="card-img-top" src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/meal/{{menu.meals[0].label}}.png"
           alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title h5">{{menu.meals[0].label}}</h5>
