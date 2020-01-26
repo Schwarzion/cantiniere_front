@@ -81,7 +81,6 @@ export class HeaderComponent implements OnInit {
           this.isConnected = true;
           if (this.user.isLunchLady) {
             this.isLunchLady = true;
-            console.log(this.isLunchLady);
           }
         }
       });

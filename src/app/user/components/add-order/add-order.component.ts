@@ -5,6 +5,7 @@ import { OrderRestControllerService } from 'src/app/services/order-rest-controll
 import { CartService } from 'src/app/services/cart.service';
 import { MealListComponent } from 'src/app/shared/components';
 import { MatDialog } from '@angular/material';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class AddOrderComponent implements OnInit {
   hasSubmitted;
   selectedMenu;
 
+  envURL;
+
   constructor(
     private mealService: MealRestControllerService,
     private userService: UserService,
@@ -29,6 +32,7 @@ export class AddOrderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.envURL = environment.apiUrl;
     this.getAvailableMeals();
     this.getUserId();
   }
@@ -50,6 +54,7 @@ export class AddOrderComponent implements OnInit {
 
     this.cartService.addMenu(orderDetails);
     this.hasSubmitted = true;
+    setTimeout(() => this.hasSubmitted = false, 7000);
   }
 
   addMenu(menu) {

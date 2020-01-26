@@ -8,7 +8,7 @@ import {
   IngredientsComponent,
   IngredientDetailComponent,
   ValidateComponent,
-  IngredientFormComponent
+  IngredientFormComponent,
 } from './components';
 import { FundingComponent, MenuComponent, MealComponent } from './containers';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
@@ -27,7 +27,9 @@ const routes: Routes = [
   { path: 'ingredientForm', component: IngredientFormComponent },
   { path: 'validate', component: ValidateComponent },
   { path: 'meals', component: MealComponent },
-  { path: '**', component: FundingComponent},
+  { path: 'meals/add', component: AddMealComponent },
+  { path: 'meals/edit/:id', component: AddMealComponent },
+  { path: '**', component: FundingComponent },
   { path: '', component: OrdersListComponent },
   // Redirection en cas de route non trouvée
   // {path: '**', component: OrdersListComponent}

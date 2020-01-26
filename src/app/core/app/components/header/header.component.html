@@ -25,8 +25,13 @@
             <i class="material-icons">view_day</i> Commandes </a>
         </div>
         <hr *ngIf="isConnected" />
+        <a class="nav-link" *ngIf="isConnected" href="/user/add">
+          <i class="material-icons">subdirectory_arrow_left</i> Commander
+        </a>
+        <hr *ngIf="isConnected" />
         <a class="nav-link" *ngIf="isConnected" href="/user/profile">
-          <i class="material-icons">account_circle</i> {{ user?.name }}</a>
+          <i class="material-icons">account_circle</i> {{ user?.name }}
+        </a>
         <hr>
         <span *ngIf="isConnected" class="nav-link">
           <i class="material-icons">payment</i> {{ user?.wallet }} €

@@ -1,11 +1,10 @@
 <div class="user-add container">
   <div class="h2 user-add__title d-flex">
     <h2>Commander un plat</h2>
-    <p *ngIf="hasFailed === false">Votre commande a bien été prise en compte</p>
-    <p *ngIf="hasFailed && hasFailed.length > 1">{{hasFailed}}</p>
     <button class="btn-link--blue" (click)="validate()"><i class="material-icons">done</i></button>
     <i class="material-icons more" (click)="openMealListModal()" style="color: green">add_circle</i>
   </div>
+  <span class="user-add__item--title" *ngIf="hasSubmitted">Votre commande a bien été prise en compte</span>
   <h2>Commander un menu</h2>
   <div *ngIf="menusAvailable"  class="user-add__container row">
     <div *ngFor="let menu of menusAvailable" (click)="addMenu(menu)" class="user-add__item col-4 menu-item">

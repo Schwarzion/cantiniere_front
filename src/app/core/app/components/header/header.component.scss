@@ -1,3 +1,24 @@
+.nav-link {
+  display: flex;
+  padding: 20px 0;
+  color: #323232;
+  transition: 0.3s;
+
+  &:hover {
+    color: #FF9900;
+  }
+
+  >i {
+    color: #FF9900;
+    margin-right: 10px;
+    transition: 0.3s;
+
+    &:hover {
+      color: #004D5D;
+    }
+  }
+}
+
 .navbar {
   position: relative;
   display: flex;
