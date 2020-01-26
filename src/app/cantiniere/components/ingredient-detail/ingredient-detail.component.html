@@ -1,13 +1,10 @@
-<p>ingredient-detail works!</p>
-<div>
+<div class="align-middle">
     <div class="col">
-        <button mat-button (click)="closeDialog()" [routerLink]="['/cantiniere/ingredients']">Retour</button>
-        {{ ingredient.id }}
-        {{ ingredient.status }}
-        <img src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/ingredient/{{ ingredient.label }}.png" alt="">
+       <img src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/ingredient/{{ ingredient.label }}.png" alt="">
         <p>{{ ingredient.label }}</p>
         <p>{{ ingredient.description }}</p>
-        <button mat-button (click)="openEditDialog(ingredient.id)">Mettre a jour</button>
-        <button mat-button (click)="openDeleteDialog(ingredient.id)">Supprimer</button>
-    </div>
+        <button class="btn btn-link--orange btn-outline-orange mt-4" mat-button (click)="openEditDialog(ingredient.id)">Mettre a jour</button>
+        <button class="btn btn-link--blue btn-outline-blue mt-4" mat-button (click)="openDeleteDialog(ingredient.id)">Supprimer</button>
+    </div> <button class="btn btn-link--blue btn-outline-blue mt-4" mat-button (click)="closeDialog()" [routerLink]="['/cantiniere/ingredients']">Retour</button>
+        
 </div>

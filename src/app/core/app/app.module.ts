@@ -9,11 +9,12 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, base.HomeComponent, ForgotPasswordComponent],
+  declarations: [AppComponent, base.HomeComponent, ForgotPasswordComponent, RegisterComponent],
   imports: [CommonModule, AppRoutingModule, HttpClientModule, SharedModule, RouterModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,10 +1,20 @@
 <p>ingredients works!</p>
+<button class="btn btn-link--orange btn-outline-orange mt-4" (click)="openAddDialog()">Ajouter un ingrédient</button>
 <div *ngIf="ingredients.length > 0">
-    <button (click)="openAddDialog()">Ajouter un ingrédient</button>
-    <div *ngFor="let ingredient of ingredients">
-        <div>
-            <img [routerLink]="['/cantiniere/ingredientDetail', ingredient.id]" src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/ingredient/{{ ingredient.label }}.png" alt="">
-            <p>{{ ingredient.label }}</p>
+
+    <div class="card-group align-middle">
+        <div *ngFor="let ingredient of ingredients">
+            <div class="card border-primary w-5 m-4 mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <img [routerLink]="['/cantiniere/ingredientDetail', ingredient.id]"
+                        src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/ingredient/{{ ingredient.label }}.png"
+                        alt="">
+                </div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">{{ ingredient.label }}</h5>
+                    <p class="card-text">{{ ingredient.description }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

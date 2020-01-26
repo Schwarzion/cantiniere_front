@@ -1,40 +1,39 @@
-<p>ingredient-form works!</p>
-<div *ngIf="ingredientsData.formType === 'add'; else edit">
-    <h1 mat-dialog-title>Formulaire d'ajout d'ingredient</h1>
-    <div mat-dialog-content [formGroup]="ingredientForm" (ngSubmit)="addIngredient()">
-        <form>
-            <label mat-label for="label">Label</label>
-            <input matInput name="label" id="label" type="text" [formControlName]="label" placeholder="label">
+<div  class="text-center" *ngIf="ingredientsData.formType === 'add'; else edit">
+    <h1 class="font-weight-bold" mat-dialog-title>Formulaire d'ajout d'ingredient</h1>
+    <div>
+        <form [formGroup]="ingredientForm" (ngSubmit)="addIngredient()">
+            <span class="span-center row pl-4 font-weight-bold">Label</span>
+            <input class="mx-auto span-outline" matInput name="label" id="label" type="text" [formControlName]="label" placeholder="label">
 
-            <label mat-label for="image">Image</label>
-            <input matInput name="image" id="image" type="text" [formControlName]="image" placeholder="image">
+            <span class="text-center row pl-4 font-weight-bold">Image</span>
+            <input class="mx-auto span-outline" matInput name="image" id="image" type="text" [formControlName]="image" placeholder="image">
 
-            <label mat-label for="description">Description</label>
-            <input matInput name="description" id="description" type="text" [formControlName]="description" placeholder="description">
-            
+            <span class="span-left row pl-4 font-weight-bold">Description</span>
+            <input class="mx-auto span-outline" matInput name="description" id="description" type="text" [formControlName]="description" placeholder="description">
+
             <div mat-dialog-actions>
-                <button mat-button class="mat-raised-button mat-primary" type="submit">Ajouter</button>
-                <button mat-button class="mat-raised-button" (click)="closeDialog()">Annuler</button>
+                <button class="btn btn-link--blue btn-outline-blue mt-4" mat-button type="submit">Ajouter</button>
+                <button class="btn btn-link--orange btn-outline-orange mt-3" mat-button (click)="closeDialog()">Annuler</button>
             </div>
         </form>
     </div>
 </div>
 <ng-template #edit>
-    <h1 mat-dialog-title>Formulaire d'edition d'ingredient</h1>
-    <div mat-dialog-content [formGroup]="ingredientForm" (ngSubmit)="editIngredient()">
-        <form>
-            <label mat-label for="label">Label</label>
-            <input matInput name="label" id="label" type="text" [formControlName]="label" placeholder="label">
+    <h1 class="font-weight-bold" mat-dialog-title>Formulaire d'edition d'ingredient</h1>
+    <div>
+        <form [formGroup]="ingredientForm" (ngSubmit)="editIngredient()">
+            <span class="span-center row pl-4 font-weight-bold">Label</span>
+            <input class="mx-auto span-outline" matInput name="label" id="label" type="text" [formControlName]="label" placeholder="label">
 
-            <label mat-label for="image">Image</label>
-            <input matInput name="image" id="image" type="text" [formControlName]="image" placeholder="image">
+            <span class="span-center row pl-4 font-weight-bold">Image</span>
+            <input class="mx-auto span-outline" matInput name="image" id="image" type="text" [formControlName]="image" placeholder="image">
 
-            <label mat-label for="description">Description</label>
-            <input matInput name="description" id="description" type="text" [formControlName]="description" placeholder="description">
+            <span class="span-center row pl-4 font-weight-bold">Description</span>
+            <input class="mx-auto span-outline" matInput name="description" id="description" type="text" [formControlName]="description" placeholder="description">
 
             <div mat-dialog-actions>
-                <button mat-button class="mat-raised-button mat-primary" type="submit">Editer</button>
-                <button mat-button class="mat-raised-button" (click)="closeDialog()">Annuler</button>
+                <button mat-button class="btn btn-link--blue btn-outline-blue mt-4" type="submit">Editer</button>
+                <button mat-button class="btn btn-link--orange btn-outline-orange mt-3" (click)="closeDialog()">Annuler</button>
             </div>
         </form>
     </div>
