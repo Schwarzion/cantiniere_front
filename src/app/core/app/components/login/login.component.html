@@ -1,12 +1,12 @@
 <form [formGroup]="loginForm" mat-dialog-content class="text-center">
   <div>
-    <label for="email">Email:</label>
-    <input id="email" type="text" formControlName="email" placeholder="email" />
+    <span class="span-left row pl-4 font-weight-bold">Email:</span>
+    <input id="email" type="text" formControlName="email"  class="mx-auto span-outline" placeholder="email" />
   </div>
   <div>
-    <label for="password">Mot de passe:</label>
-    <input id="password" type="password" formControlName="password"  placeholder="password"/>
+    <span class="span-left row pl-4 mt-3 font-weight-bold">Mot de passe:</span>
+    <input id="password" type="password" formControlName="password"  class="mx-auto span-outline" placeholder="password"/>
   </div>
-  <button class="btn" type="button" (click)="sendLogin()">Connexion</button>
-  <button class="btn">Mot de passe oublié ?</button>
+  <button class="btn btn-link--blue btn-outline-blue mt-4" type="button" (click)="sendLogin()">Connexion</button>
+  <a class="btn btn-link--orange btn-outline-orange mt-3" href="/forgotpassword">Mot de passe oublié ?</a>
 </form>
