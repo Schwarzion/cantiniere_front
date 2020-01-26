@@ -3,19 +3,20 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UserService } from 'src/app/services/user.service';
-import { ValidatePassword } from '../../must-match/validate-password';
+import { ValidatePassword } from 'src/app/user/must-match/validate-password';
 
 @Component({
-  selector: 'app-new-account',
-  templateUrl: './new-account.component.html',
-  styleUrls: ['./new-account.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class NewAccountComponent implements OnInit {
+export class RegisterComponent implements OnInit {
+
+  constructor(private router: Router, private userService: UserService) { }
 
   submitted = false;
+  email = false;
   form: FormGroup;
-  constructor(private router: Router, private userService: UserService) {
-  }
 
   ngOnInit() {
     this.initForm();
@@ -43,12 +44,14 @@ export class NewAccountComponent implements OnInit {
 
   submit() {
     this.submitted = true;
-    if (this.form.invalid) {
-      console.log(this.form);
-      console.log('nok');
-    } else {
-      this.userService.addUser(this.form.value).subscribe(resp => console.log(resp));
-      this.router.navigate(['/']);
+    if (this.form.valid) {
+      this.userService.addUser(this.form.value).subscribe(resp => {
+        this.router.navigate(['/']);
+      }, err => { if (err.status === 412) {
+          this.email = true;
+        }
+      });
     }
   }
+
 }

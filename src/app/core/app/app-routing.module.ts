@@ -4,11 +4,13 @@ import { HomeComponent } from './components/home/home.component';
 import { LunchLadyGuard } from '../authguards/lunch-lady-guard.guard';
 import { UserGuard } from '../authguards/user.guard';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   //Charge un module qui va appeler les routes du module souhaité
   { path: '', component: HomeComponent },
   { path: 'forgotpassword', component: ForgotPasswordComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'cantiniere',
     loadChildren: () =>

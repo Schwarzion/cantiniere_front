@@ -1,16 +1,72 @@
-.order {
-  border: 1px solid black;
-  margin: 16px;
-  
+@import '../../../../assets/scss/colors';
 
-  .meal {
+.order {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    span {
+      font-size: 18px;
+      font-weight: 600;
+      color: $secondary;
+    }
+
+    &--more {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: $orange;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #F4F4F4;
+
+      i {
+        font-size: 22px;
+        color: $secondary;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &-meal {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+
+    &__content {
+      width: 100%;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F4F4F4;
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        color: $text-color;
+      }
+    }
 
     img {
-      width: 75px;
-      height: 75px;
+      min-width: 100%;
+      min-height: 60px;
+      border-radius: 5px;
+    }
+
+
+    &__buttons {
+      &--button {
+        margin: 10px auto;
+        padding: 6px 25px;
+      }
     }
   }
 }

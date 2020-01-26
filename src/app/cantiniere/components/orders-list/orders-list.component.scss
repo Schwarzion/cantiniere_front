@@ -1,5 +1,119 @@
-.list {
+@import "../../../../assets/scss/colors";
+
+.order-list__pres {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  min-height: 300px;
+  margin-top: 100px;
+
+  h2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    width: 50%;
+    padding-right: 20px;
+  }
+
+  &--picture {
+    position: relative;
+    width: 50%;
+    min-height: 300px;
+    background-image: url("../../../../assets/img/jpg/second-meal.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: -30px;
+      display: inline-block;
+      height: 2px;
+      width: 40px;
+      background-color: $orange;
+    }
+  }
+}
+
+.order-list {
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 50%;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    padding: 10px;
+    background-color: rgba(0, 77, 93, 0.1);
+    border-radius: 5px;
+
+    p {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: 18px;
+      font-weight: 600;
+      color: $secondary;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 16px;
+      font-weight: 600;
+      color: $secondary;
+      margin-bottom: 10px;
+    }
+
+    input {
+      border: none;
+      border-bottom: 1px solid $opac-orange;
+    }
+  }
+
+  &__line {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+
+    button {
+      padding: 5px 25px 7px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 25%;
+    max-width: 25%;
+    min-height: 600px;
+    max-height: 900px;
+    margin: 40px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  }
 }

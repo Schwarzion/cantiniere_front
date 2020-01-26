@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
     this.menuService.getMenuWeekList()
       .subscribe(data => {
         this.menuList2 = Object.values(data);
-        console.log(this.menuList2);
       });
   }
 }

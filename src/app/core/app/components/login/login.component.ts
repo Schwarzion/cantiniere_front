@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl('toto@gmail.com', [Validators.required, Validators.email]),
-      password: new FormControl('bonjour', Validators.required)
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -32,8 +32,6 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).subscribe(res => {
       if (res.status === 200) {
         const token = res.headers.get('authorization').replace('Bearer ', '');
-        console.log(token);
-        console.log(res.headers.get('authorization'));
         this.userService.setUserToken(token);
         this.userService.setUser();
         this.loginDialog.close();
