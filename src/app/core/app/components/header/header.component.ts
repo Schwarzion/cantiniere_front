@@ -23,6 +23,7 @@ import { from } from 'rxjs';
 export class HeaderComponent implements OnInit {
   isConnected = false;
   isModalOpen = false;
+  isLunchLady = false;
   route: string;
   currentUser;
   currentUrl;
@@ -78,6 +79,10 @@ export class HeaderComponent implements OnInit {
         this.user = resp.body;
         if (resp.status === 200) {
           this.isConnected = true;
+          if (this.user.isLunchLady) {
+            this.isLunchLady = true;
+            console.log(this.isLunchLady);
+          }
         }
       });
   }
