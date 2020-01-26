@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-/*   apiUrl: 'http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime',
- */  apiUrl: 'http://localhost:8080/lunchtime',
+  apiUrl: 'http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime',
 };
 /*
  * For easier debugging in development mode, you can import the following file
