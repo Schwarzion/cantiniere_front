@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MealRestControllerService } from 'src/app/services/meal-rest-controller.service';
+import { getCurrentWeek } from 'src/app/utils/date';
 
 @Component({
   selector: 'app-meal-list',
@@ -14,6 +15,8 @@ export class MealListComponent implements OnInit {
   selectedMeals = [];
   selectedIds = [];
 
+  weekNumber;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public mealListDialog: MatDialogRef<MealListComponent>,
@@ -21,13 +24,14 @@ export class MealListComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getAllMeals();
+    this.weekNumber = getCurrentWeek();
+    this.getWeeklyMeal();
     this.selectedIds = this.data.mealIds;
     this.selectedMeals = this.data.meals;
   }
 
-  getAllMeals() {
-    this.mealService.getAllMeals().subscribe(meals => {
+  getWeeklyMeal() {
+    this.mealService.getMealByWeek(this.weekNumber).subscribe(meals => {
       this.meals = meals;
     });
   }
