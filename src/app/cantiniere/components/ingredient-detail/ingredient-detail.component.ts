@@ -52,13 +52,13 @@ export class IngredientDetailComponent implements OnInit {
 
     const dialogConfig = new MatDialogConfig();
 
-        dialogConfig.disableClose = true;
+        dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
         dialogConfig.data = {
           ingredienId: id
         }
         
-    this.dialogRef = this.dialog.open(ValidateComponent, {data: dialogConfig});
+    this.dialogRef = this.dialog.open(ValidateComponent, dialogConfig);
 
     this.dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -76,10 +76,11 @@ export class IngredientDetailComponent implements OnInit {
         dialogConfig.autoFocus = true;
         dialogConfig.data = {
           ingredientId: id,
+          'formType': 'edit',
           ...this.ingredient
         }
 
-    this.dialogRef = this.dialog.open(IngredientFormComponent, {data: dialogConfig});
+    this.dialogRef = this.dialog.open(IngredientFormComponent, dialogConfig);
 
     this.dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

@@ -4,7 +4,7 @@
         <button mat-button (click)="closeDialog()" [routerLink]="['/cantiniere/ingredients']">Retour</button>
         {{ ingredient.id }}
         {{ ingredient.status }}
-        <img src="http://localhost:8080/lunchtime/{{ ingredient.image }}" alt="">
+        <img src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/ingredient/{{ ingredient.label }}.png" alt="">
         <p>{{ ingredient.label }}</p>
         <p>{{ ingredient.description }}</p>
         <button mat-button (click)="openEditDialog(ingredient.id)">Mettre a jour</button>

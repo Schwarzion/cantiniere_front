@@ -1,9 +1,9 @@
 <p>ingredients works!</p>
 <div *ngIf="ingredients.length > 0">
-    <button>Ajouter un ingrédient</button>
+    <button (click)="openAddDialog()">Ajouter un ingrédient</button>
     <div *ngFor="let ingredient of ingredients">
         <div>
-            <img [routerLink]="['/cantiniere/ingredientDetail', ingredient.id]" src="http://localhost:8080/lunchtime/{{ ingredient.image }}" alt="">
+            <img [routerLink]="['/cantiniere/ingredientDetail', ingredient.id]" src="http://aston-api.francecentral.cloudapp.azure.com:8080/lunchtime/img/ingredient/{{ ingredient.label }}.png" alt="">
             <p>{{ ingredient.label }}</p>
         </div>
     </div>

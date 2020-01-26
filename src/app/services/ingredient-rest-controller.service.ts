@@ -51,6 +51,9 @@ export class IngredientRestControllerService {
   getAllIngredients(): Observable<any> {
     return this.http.get(`${this.URL}/findall`);
   }
+  getImageIngredient(id: number): Observable<any>{
+    return this.http.get<any>(`${environment.apiUrl}/ingredient/findimg/${id}`);
+  }
 
 
   /**

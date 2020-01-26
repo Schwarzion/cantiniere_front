@@ -15,6 +15,7 @@ export class IngredientFormComponent implements OnInit {
   ingredientDescription: any;
   ingredientForm: FormGroup;
   ingredient: any;
+  ingredientsData;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public ingredientData: any,
@@ -23,8 +24,8 @@ export class IngredientFormComponent implements OnInit {
     private dialogRef: MatDialogRef<IngredientFormComponent>,
     public dialog: MatDialog
   ) {
-    this.ingredientData = ingredientData.data;
-    console.log(this.ingredientData);
+    this.ingredientsData = ingredientData;
+    console.log(this.ingredientsData);
   }
 
   ngOnInit() {
@@ -33,8 +34,8 @@ export class IngredientFormComponent implements OnInit {
 
   initForm() {
     this.ingredientForm = new FormGroup({
-      label:        new FormControl(this.ingredientData.label, Validators.required),
-      image:        new FormControl(this.ingredientData.image, Validators.required),
+      label:        new FormControl(this.ingredientData.formType === 'edit' ? this.ingredientData.label : '', Validators.required),
+      image:        new FormControl(this.ingredientData.formType === 'edit' ? this.ingredientData.image : '', Validators.required),
       description:  new FormControl('', Validators.required)
     });
   }
@@ -48,11 +49,15 @@ export class IngredientFormComponent implements OnInit {
   }
 
   editIngredient() {
-    console.log(this.ingredientData.id);
-    console.log(this.ingredientForm.value);
     this.IngredienService.editIngredient(this.ingredientForm.value, this.ingredientData.id)
       .subscribe(() => this.closeDialog()
       );
+  }
+
+  addIngredient() {
+    console.log(this.ingredientForm.value);
+    this.IngredienService.addIngredient(this.ingredientForm.value)
+      .subscribe(() => this.closeDialog())
   }
 
   closeDialog() {

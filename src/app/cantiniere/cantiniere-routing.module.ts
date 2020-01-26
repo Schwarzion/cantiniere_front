@@ -10,7 +10,8 @@ import {
   ValidateComponent,
   IngredientFormComponent
 } from './components';
-import { FundingComponent, MenuComponent } from './containers';
+import { FundingComponent, MenuComponent, MealComponent } from './containers';
+import { AddMealComponent } from './components/add-meal/add-meal.component';
 
 const routes: Routes = [
   { path: 'orders', component: OrdersListComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'ingredientDetail/:id', component: IngredientDetailComponent },
   { path: 'ingredientForm', component: IngredientFormComponent },
   { path: 'validate', component: ValidateComponent },
+  { path: 'meals', component: MealComponent },
   { path: '**', component: FundingComponent},
   { path: '', component: OrdersListComponent },
   // Redirection en cas de route non trouvée
