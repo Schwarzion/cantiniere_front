@@ -1,12 +1,12 @@
 <div class="form-list__pres">
   <div class="form-list__pres--content">
-    <h2 class="h2">Gestion des repas</h2>
+    <h2 class="h2">{{isEditing ? 'Éditer' : 'Ajouter'}} un repas</h2>
     <div class="form-list__pres--background"></div>
   </div>
 </div>
 <form class="form-list container" *ngIf="mealForm" [formGroup]="mealForm" (ngSubmit)="sendMeal()">
   <div class="col mb-3">
-    <h3 class="h3">Choix des repas </h3>
+    <h3 class="h3">Détail du repas </h3>
     <div class="form-row form-list__search">
       <div class="col-3 form-list__input">
         <label for="label">Nom</label>

@@ -32,7 +32,6 @@ export class AddMenuComponent implements OnInit {
   ngOnInit() {
     this.route.url.pipe(
       switchMap(url => {
-        console.log(url);
         if (url.length === 3) {
           this.isEditing = true;
           this.menuId = url[url.length - 1].path;

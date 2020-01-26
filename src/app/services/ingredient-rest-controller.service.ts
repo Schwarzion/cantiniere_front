@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class IngredientRestControllerService {
+  private URL = `${environment.apiUrl}/ingredient`;
 
   userToken;
 

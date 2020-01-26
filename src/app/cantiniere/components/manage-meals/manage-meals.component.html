@@ -34,7 +34,7 @@
         </td>
         <td>
           <label *ngFor="let ingredient of meal.ingredients; let j = index">
-            {{ingredient.label}}{{j === ingredient.i.length - 1 ? '' : ', &nbsp;'}}
+            {{ingredient.label}}{{j === meal.ingredients.length - 1 ? '' : ', &nbsp;'}}
           </label>
         </td>
         <td>
