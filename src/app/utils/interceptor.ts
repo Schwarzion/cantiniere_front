@@ -12,7 +12,6 @@ export const noConnexionNeeded = [
 ];
 
 export const isJWTRequired = (url: string) => {
-  console.log(url);
   for (const item of noConnexionNeeded) {
     if (url.includes(`${environment.apiUrl}${item}`)) {
       return false;

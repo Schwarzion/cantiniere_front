@@ -8,5 +8,5 @@
     <input id="password" type="password" formControlName="password"  placeholder="password"/>
   </div>
   <button class="btn" type="button" (click)="sendLogin()">Connexion</button>
-  <button class="btn">Mot de passe oublié ?</button>
+  <button (click)="requestPassword()" [routerLink]="['/forgotpassword']" class="btn">Mot de passe oublié ?</button>
 </form>

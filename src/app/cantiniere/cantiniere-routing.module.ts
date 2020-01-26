@@ -4,7 +4,7 @@ import {
   OrdersListComponent,
   UserOrderHistoryComponent,
   AddMenuComponent,
-  UserProfileComponent,
+  UserProfileComponent
 } from './components';
 import { FundingComponent, MenuComponent, MealComponent } from './containers';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
