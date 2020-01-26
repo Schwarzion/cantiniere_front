@@ -48,6 +48,9 @@ export class IngredientRestControllerService {
   deleteIngredient(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}/ingredient/delete/${id}`);
   }
+  getAllIngredients(): Observable<any> {
+    return this.http.get(`${this.URL}/findall`);
+  }
 
 
   /**
