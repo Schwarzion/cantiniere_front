@@ -2,7 +2,7 @@ import { environment } from 'src/environments/environment';
 
 export const noConnexionNeeded = [
   '/forgotpassword',
-  '/ingredient/find',
+  '/ingredient/find/',
   '/meal/find/',
   '/meal/findallavailablefortoday',
   '/meal/findallavailableforweek',

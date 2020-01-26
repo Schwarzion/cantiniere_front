@@ -1,0 +1,49 @@
+@import 'src/assets/scss/colors';
+
+.list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 40px;
+
+  th {
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    border-left: 2px solid $primary;
+    background-color: $secondary;
+  }
+
+  tr,
+  td {
+    padding: 10px 20px;
+    border: 2px solid $secondary;
+  }
+
+  td {
+    color: $primary;
+    text-align: center;
+
+    &:nth-child(even) {
+      background-color: rgba(255, 153, 0, 0.1);
+    }
+
+    &:nth-child(odd) {
+      background-color: rgba(0, 77, 93, 0.1);
+    }
+
+    i {
+      cursor: pointer;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+}
+
+.menu-list__btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}

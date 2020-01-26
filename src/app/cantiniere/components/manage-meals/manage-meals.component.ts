@@ -13,7 +13,8 @@ export class ManageMealsComponent implements OnInit {
 
   ngOnInit() {}
 
-  deleteMenu(mealId) {
+  deleteMeal(mealId) {
+    console.log(mealId);
     this.sendDelete.emit(mealId);
   }
 }
