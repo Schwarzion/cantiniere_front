@@ -16,8 +16,10 @@
   </div>
 </div>
 <div class="order-list__container container">
-  <app-order class="order-list__content" *ngFor="let order of orders" [order]="order"
-    (sendOrderAction)="orderAction($event)">
-  </app-order>
+  <div class="order-list__content" *ngFor="let order of orders">
+    <app-order [order]="order"
+      (sendOrderAction)="orderAction($event)">
+    </app-order>
+  </div>
   <p class="container" *ngIf="orders && orders.length === 0">Aucune commande trouvée pour ce jour.</p>
 </div>

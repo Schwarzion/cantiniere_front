@@ -41,7 +41,7 @@
     <div class="meal-list">
       <div class="meal-list__items" *ngFor="let meal of meals">
         <p>{{meal.label}} <i (click)="removeMeal(meal.id)" class="material-icons">remove_circle_outline</i></p>
-        <img src="/assets/{{meal.image}}" [alt]="meal.image" />
+        <img src="{{ envURL }}/img/meal/{{meal.label}}.png" [alt]="meal.image" />
       </div>
     </div>
   </div>

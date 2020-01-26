@@ -33,7 +33,7 @@
                 <div class="card-body list">
                     <div class="card result">
                         <div class="card-header">
-                            <img class="card-img-top" *ngIf="meal.meal.image" src="/assets/{{ meal.meal.image }}" alt="{{ meal.meal.image }}">
+                            <img class="card-img-top" *ngIf="meal.meal.label" src="{{ envURL }}/img/meal/{{meal.meal.label}}.png" alt="{{ meal.meal.image }}">
                         </div>
                         <div class="card-body">
                             {{ meal.meal.label }}
@@ -63,7 +63,7 @@
                 <div class="card-body list">
                     <div class="card result" *ngFor="let meals of order.menu.meals">
                         <div class="card-header">
-                            <img class="card-img-top" *ngIf="meals.image" src="/assets/{{ meals.image }}" alt="{{ meals.image }}">
+                            <img class="card-img-top" *ngIf="meals.label" src="{{ envURL }}/img/meal/{{meals.label}}.png" alt="{{ meals.label }}">
                         </div>
                         <div class="card-body">
                             {{ meals.label }}

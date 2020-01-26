@@ -44,4 +44,9 @@ export class OrdersListComponent implements OnInit {
     this.orders = filteredOrder;
   }
 
+
+  isOrderEmpty(order) {
+    return !(order.quantityMeals || order.menu);
+  }
+
 }
