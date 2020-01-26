@@ -64,7 +64,7 @@ export class AddOrderComponent implements OnInit {
   }
 
   getAvailableMeals() {
-    this.mealService.getWeekMeals().subscribe(menus => {
+    this.mealService.getWeekMenus().subscribe(menus => {
       this.menusAvailable = menus;
     });
   }
