@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
   openLoginModal() {
     if (!this.isModalOpen) {
       this.isModalOpen = true;
-      const dialogRef = this.matDialog.open(LoginComponent, { width: '250px' });
+      const dialogRef = this.matDialog.open(LoginComponent, { width: '320px' });
       dialogRef.afterClosed().subscribe(() => {
         this.isUserConnected();
         this.isModalOpen = false;

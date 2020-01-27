@@ -1,0 +1,20 @@
+.btn-custom {
+    border: 1px solid #004D5D;
+    &:hover {
+        color: white
+    }
+}
+
+.text-custom {
+    color:  #004D5D;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid #004D5D;
+  }
+
+input:focus {
+    background-color: #fafafa;
+    outline: none;
+  }
